@@ -41,7 +41,10 @@ makepkg -si --noconfirm
 cd ..
 rm -rf yay
 
-yay -Syu --noconfirm - < packages.txt
+cd $root
+
+sudo pacman -Syu --noconfirm - < packages.txt
+yay -Syu --noconfirm - < packages_aur.txt
 
 systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon
 

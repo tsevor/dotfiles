@@ -1,0 +1,3 @@
+equicord
+zen-browser-bin
+visual-studio-code-bin
