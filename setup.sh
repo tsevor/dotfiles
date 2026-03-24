@@ -81,8 +81,6 @@ sudo make install
 
 fastfetch
 
-
-
-echo -e "\e[31mRemember to configure:\e[0m"
-echo -e "\e[31m    .config/hypr/land/monitors.conf\e[0m"
-echo -e "\e[31m    .config/hypr/hyprlock.conf\e[0m"
+echo -e "\e[33mRemember to configure:\e[0m"
+echo -e "\e[33m    .config/hypr/land/monitors.conf\e[0m"
+echo -e "\e[33m    .config/hypr/hyprlock.conf\e[0m"
