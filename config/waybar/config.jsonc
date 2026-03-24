@@ -1,0 +1,163 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 0,
+    "modules-left": [
+        "clock",
+        "hyprland/workspaces",
+        "custom/media_prev",
+        "mpris",
+        "custom/media_next"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "disk",
+        "temperature",
+        "network",
+        "bluetooth",
+        "backlight",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "battery",
+        "tray"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+    },
+
+    // --- Clock ---
+    "clock": {
+        "interval": 1,
+        "format": "{:%Y-%m-%d %H:%M:%S}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+
+    // --- Media Controls ---
+    "custom/media_prev": {
+        "format": "<span color='#ffffff'>media:</span> <span color='#77ccff'>&lt;</span>",
+        "on-click": "playerctl previous",
+        "exec": "playerctl status >/dev/null 2>&1 && echo ' '",
+        "interval": 2,
+        "tooltip": false
+    },
+    "mpris": {
+        "format": "{artist}: {title}",
+        "max-length": 40,
+        "on-click": "playerctl play-pause"
+    },
+    "custom/media_next": {
+        "format": "<span color='#77ccff'>&gt;</span>",
+        "on-click": "playerctl next",
+        "exec": "playerctl status >/dev/null 2>&1 && echo ' '",
+        "interval": 2,
+        "tooltip": false
+    },
+
+    // --- System Resources ---
+    "cpu": {
+        "interval": 2,
+        "states": { "warning": 50, "critical": 80 },
+        "format": "<span color='#ffffff'>cpu:</span>{usage}%"
+    },
+    "memory": {
+        "interval": 2,
+        "states": { "warning": 50, "critical": 80 },
+        "format": "<span color='#ffffff'>mem:</span>{used:0.1f}g"
+    },
+    "disk": {
+        "interval": 30,
+        "format": "<span color='#ffffff'>disk:</span>{percentage_used}%",
+        "path": "/",
+        "states": { "warning": 70, "critical": 90 }
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "<span color='#ffffff'>tmp:</span>{temperatureC}°C",
+        "format-critical": "<span color='#ffffff'>tmp:</span>{temperatureC}°C"
+    },
+
+    // --- Connectivity ---
+    "network": {
+        "format-wifi": "<span color='#ffffff'>wifi:</span>{icon}{signalStrength}%</span>",
+        "format-ethernet": "<span color='#77ccff'>eth</span>",
+        "format-disconnected": "<span color='#ff7777'>dis</span>",
+        "tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}",
+        "tooltip-format-ethernet": "IP: {ipaddr}",
+        "format-icons": [
+            "<span color='#ff7777'>", "<span color='#ff7777'>",
+            "<span color='#ffb377'>", "<span color='#ffff77'>",
+            "<span color='#ffff77'>", "<span color='#77ff77'>",
+            "<span color='#77ff77'>", "<span color='#77ff77'>",
+            "<span color='#77ff77'>", "<span color='#77ff77'>"
+        ]
+    },
+    "bluetooth": {
+        "format": "<span color='#ffffff'>bt:</span><span color='#77ccff'>{status}</span>",
+        "format-disabled": "<span color='#ffffff'>bt:</span><span color='#ff7777'>off</span>",
+        "format-off": "<span color='#ffffff'>bt:</span><span color='#ff7777'>off</span>",
+        "format-on": "<span color='#ffffff'>bt:</span><span color='#77ff77'>on</span>",
+        "format-connected": "<span color='#ffffff'>bt:</span><span color='#77ff77'>{device_alias}</span>",
+        "format-connected-battery": "<span color='#ffffff'>bt:</span><span color='#77ff77'>{device_alias} {device_battery_percentage}%</span>",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "on-click": "blueman-manager"
+    },
+
+    // --- Hardware Controls ---
+    "backlight": {
+        "format": "<span color='#ffffff'>brt:</span>{icon}{percent}%</span>",
+        "tooltip-format": "Brightness: {percent}%",
+        "format-icons": [
+            "<span color='#77ff77'>", "<span color='#77ff77'>", "<span color='#77ff77'>", "<span color='#77ff77'>",
+            "<span color='#ffff77'>", "<span color='#ffff77'>",
+            "<span color='#ffb377'>", "<span color='#ffb377'>",
+            "<span color='#ff7777'>", "<span color='#ff7777'>"
+        ]
+    },
+    "pulseaudio": {
+        "format": "<span color='#ffffff'>vol:</span>{icon}{volume}%</span>",
+        "format-muted": "<span color='#ffffff'>vol:</span><span color='#ff77ff'>{volume}%</span>",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+        "scroll-step": 5,
+        "format-icons": [
+            "<span color='#77ff77'>", "<span color='#77ff77'>",
+            "<span color='#ffff77'>", "<span color='#ffff77'>",
+            "<span color='#ffb377'>", "<span color='#ffb377'>",
+            "<span color='#ff7777'>", "<span color='#ff7777'>"
+        ]
+    },
+    "pulseaudio#microphone": {
+        "format": "<span color='#ffffff'>mic:</span>{format_source}",
+        "format-source": "{icon}{volume}%</span>",
+        "format-source-muted": "<span color='#ff77ff'>{volume}%</span>",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+        "scroll-step": 5,
+        "format-icons": [
+            "<span color='#ff7777'>", "<span color='#ff7777'>",
+            "<span color='#ffb377'>", "<span color='#ffb377'>",
+            "<span color='#ffff77'>", "<span color='#ffff77'>",
+            "<span color='#77ff77'>", "<span color='#77ff77'>"
+        ]
+    },
+
+    // --- Battery ---
+    "battery": {
+        "states": { "good": 95, "warning": 30, "critical": 15 },
+        "format": "<span color='#ffffff'>bat:</span>{capacity}%",
+        "format-charging": "<span color='#ffffff'>bat:</span>{capacity}%",
+        "format-plugged": "<span color='#ffffff'>bat:</span>{capacity}%"
+    },
+
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    }
+}

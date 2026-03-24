@@ -1,0 +1,8 @@
+width=500
+height=300
+mode=drun
+allow_images=true
+image_size=32
+display_generic=true
+prompt=
+insensitive=true

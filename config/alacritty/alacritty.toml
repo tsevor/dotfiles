@@ -1,0 +1,30 @@
+[window]
+opacity = 0.0
+
+[font]
+normal = { family = "Overpass Mono", style = "Regular" }
+size = 12
+
+[colors.primary]
+foreground = "#ffffff"
+background = "#000000"
+
+[colors.normal]
+black   = "#000000"
+red     = "#ff0000"
+green   = "#00ff00"
+yellow  = "#ffff00"
+blue    = "#0088ff"
+magenta = "#ff00ff"
+cyan    = "#00ffff"
+white   = "#bbbbbb"
+
+[colors.bright]
+black   = "#333333"
+red     = "#ff8888"
+green   = "#88ff88"
+yellow  = "#ffff88"
+blue    = "#88bbff"
+magenta = "#ff88ff"
+cyan    = "#88ffff"
+white   = "#ffffff"

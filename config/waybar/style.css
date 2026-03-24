@@ -1,0 +1,82 @@
+@define-color c_green #77ff77;
+@define-color c_yellow #ffff77;
+@define-color c_red #ff7777;
+@define-color c_white #ffffff;
+@define-color c_blue #77ccff;
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Overpass Mono", monospace;
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @c_white;
+}
+
+/* Module Spacing */
+#custom-fps, /* Added FPS */
+#cpu,
+#memory,
+#disk,
+#temperature,
+#network,
+#bluetooth,
+#backlight,
+#pulseaudio,
+#battery,
+#clock,
+#tray {
+    padding: 0 8px;
+    margin: 0;
+    background: transparent;
+}
+
+/* FPS Color */
+#custom-fps {
+    color: @c_green;
+}
+
+/* --- Media Styling --- */
+#custom-media_prev {
+    padding-left: 8px;
+    padding-right: 5px;
+    background: transparent;
+}
+#custom-media_next {
+    padding-left: 5px;
+    padding-right: 8px;
+    background: transparent;
+}
+#mpris {
+    padding: 0;
+    background: transparent;
+}
+#mpris.playing { color: @c_green; }
+#mpris.paused { color: @c_yellow; }
+
+/* --- Stats Colors --- */
+#cpu, #memory, #disk, #temperature, #battery { color: @c_green; }
+#cpu.warning, #memory.warning, #disk.warning, #battery.warning { color: @c_yellow; }
+#cpu.critical, #memory.critical, #disk.critical, #temperature.critical, #battery.critical { color: @c_red; }
+
+#battery.charging, #battery.plugged { color: @c_blue; }
+
+/* --- Workspaces --- */
+#workspaces button {
+    padding: 0 5px;
+    color: #6c7086;
+    background: transparent;
+}
+#workspaces button.active {
+    color: @c_white;
+    text-decoration: underline;
+    background: transparent;
+}
+#workspaces button:hover {
+    background: transparent;
+}
