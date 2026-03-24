@@ -7,7 +7,7 @@ rm ~/.bashrc ~/.bash_profile
 
 sudo pacman -Sy --needed --noconfirm git base-devel
 
-mkdir -p ~/config
+mkdir -p ~/.config
 mkdir -p ~/dev
 
 ln -s $root/config/hypr          ~/.config
@@ -34,7 +34,6 @@ sudo cp $root/systemd/getty@tty1.service /etc/systemd/system/getty@tty1.service
 sudo sed -i s/USER/$USER/ /etc/systemd/system/getty@tty1.service
 
 cd ~/dev
-
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
