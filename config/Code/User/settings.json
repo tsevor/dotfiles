@@ -1,0 +1,160 @@
+{
+	"editor.fontFamily": "'Overpass Mono', 'Consolas'",
+	"editor.tokenColorCustomizations": {
+		"comments": "#c4ab92",
+		"functions": "#8a9cff",
+		"keywords": "#ff8fcd",
+		"numbers": "#ffffff",
+		"strings": "#c4ff8d",
+		"types": "#34c58d",
+		"variables": "#85ffeb",
+		"textMateRules": [
+			{
+				"scope": "keyword.operator",
+				"settings": {
+					"foreground": "#ffffff",
+				}
+			},
+			{
+				"scope": "punctuation.terminator",
+				"settings": {
+					"foreground": "#ffffff"
+				}
+			},
+			{
+				"scope": "keyword.control",
+				"settings": {
+					"foreground": "#ff8f9e"
+				}
+			},
+			{
+				"scope": "constant.character.escape",
+				"settings": {
+					"foreground": "#ff8b55"
+				}
+			},
+			{
+				"scope": "string.regexp",
+				"settings": {
+					"foreground": "#ffaf46"
+				}
+			}
+		]
+	},
+	"editor.semanticTokenColorCustomizations": {
+		"rules": {
+			"module": "#ffde74",
+			"namespace": "#ffde74",
+			"class": "#44ffc1",
+			"operator": "#ffffff",
+			"decorator": "#b65252",
+			"stringEscapeCharacter": "#ec814f"
+		}
+	},
+	"workbench.colorCustomizations": {
+		"editorBracketHighlight.foreground1": "#ffbdbd",
+		"editorBracketHighlight.foreground2": "#bdffbd",
+		"editorBracketHighlight.foreground3": "#bdbdff",
+		"errorForeground": "#af1e6e",
+		"editorError.foreground": "#af1e6e",
+		"editorWarning.foreground": "#e45716",
+		"terminal.ansiBlack": "#000000",
+		"terminal.ansiRed": "#ff0000",
+		"terminal.ansiGreen": "#00ff00",
+		"terminal.ansiYellow": "#ffff00",
+		"terminal.ansiBlue": "#0088ff",
+		"terminal.ansiMagenta": "#ff00ff",
+		"terminal.ansiCyan": "#00ffff",
+		"terminal.ansiWhite": "#aaaaaa",
+		"terminal.ansiBrightBlack": "#555555",
+		"terminal.ansiBrightRed": "#ff8888",
+		"terminal.ansiBrightGreen": "#88ff88",
+		"terminal.ansiBrightYellow": "#ffff88",
+		"terminal.ansiBrightBlue": "#55aaff",
+		"terminal.ansiBrightMagenta": "#ff88ff",
+		"terminal.ansiBrightCyan": "#88ffff",
+		"terminal.ansiBrightWhite": "#ffffff",
+		"terminal.background": "#000000",
+	},
+	"editor.matchBrackets": "near",
+	"editor.guides.bracketPairs": true,
+	"editor.guides.bracketPairsHorizontal": false,
+	"editor.guides.highlightActiveIndentation": "always",
+	"explorer.confirmDragAndDrop": false,
+	"workbench.editor.defaultBinaryEditor": "default",
+	"editor.minimap.renderCharacters": false,
+	"editor.minimap.showSlider": "always",
+	"editor.accessibilitySupport": "off",
+	"editor.acceptSuggestionOnEnter": "off",
+	"notebook.consolidatedRunButton": true,
+	"files.autoSave": "afterDelay",
+	"C_Cpp.codeAnalysis.runAutomatically": false,
+	"C_Cpp.debugShortcut": false,
+	"C_Cpp.autocompleteAddParentheses": true,
+	"workbench.tree.renderIndentGuides": "always",
+	"security.workspace.trust.untrustedFiles": "open",
+	"diffEditor.maxComputationTime": 0,
+	"better-comments.tags": [
+		{
+			"tag": "!",
+			"color": "#FF2D00",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "?",
+			"color": "#3498DB",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "//",
+			"color": "#474747",
+			"strikethrough": true,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "todo",
+			"color": "#FF8C00",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		},
+		{
+			"tag": "*",
+			"color": "#98C379",
+			"strikethrough": false,
+			"underline": false,
+			"backgroundColor": "transparent",
+			"bold": false,
+			"italic": false
+		}
+	],
+	"explorer.confirmDelete": false,
+	"git.confirmSync": false,
+	"editor.insertSpaces": false,
+	"python.analysis.autoIndent": false,
+	"git.enableSmartCommit": true,
+	"git.autofetch": true,
+	"diffEditor.codeLens": true,
+	"workbench.colorTheme": "Default Dark Modern",
+	"terminal.integrated.sendKeybindingsToShell": true,
+	"github.copilot.nextEditSuggestions.enabled": true,
+	"workbench.tree.indent": 16,
+	"editor.indentSize": "tabSize",
+	"editor.detectIndentation": false,
+	"diffEditor.ignoreTrimWhitespace": false,
+	"python.defaultInterpreterPath": "/bin/python",
+	"makefile.configureOnOpen": true,
+}
