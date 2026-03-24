@@ -24,19 +24,8 @@ fi
 
 . /usr/share/bash-completion/bash_completion
 
-if [ -e ~/.bash_aliases ]; then
-	. ~/.bash_aliases
-fi
+. ~/.bash_aliases
 
 if [ -e ~/.bash_secret ]; then
 	. ~/.bash_secret
 fi
-
-if [ -e ~/.bash_completion/s_completions ]; then
-	. ~/.bash_completion/s_completions
-fi
-
-if [ -e /storage ]; then
-	cd /storage
-fi
-
