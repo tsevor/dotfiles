@@ -23,6 +23,7 @@ hyprland
 hyprpaper
 hyprshot
 hyprlock
+hypridle
 waybar
 wofi
 swaync
@@ -30,6 +31,7 @@ swaync
 alacritty
 pcmanfm
 xarchiver
+ghex
 
 brightnessctl
 playerctl
@@ -39,6 +41,7 @@ pipewire-jack
 wireplumber
 bluez
 bluez-utils
+xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 polkit
 gvfs
