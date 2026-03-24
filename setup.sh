@@ -44,4 +44,12 @@ systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring
 
 fc-cache -fv
 
+# configure zen
+ZEN_PROFILE_PATH=$(find ~/.config/zen -maxdepth 1 -type d -name "*.Default (release)" | head -n 1)
+ZEN_USER_JS="$ZEN_PROFILE_PATH/user.js"
+ZEN_SETTING1='user_pref("zen.view.experimental-no-window-controls", true);'
+ZEN_SETTING2='user_pref("zen.theme.content-element-separation", 0);'
+grep -qF "$ZEN_SETTING1" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING1" >> "$ZEN_USER_JS"
+grep -qF "$ZEN_SETTING2" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING2" >> "$ZEN_USER_JS"
+
 fastfetch
