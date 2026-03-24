@@ -40,7 +40,7 @@ wireplumber
 bluez
 bluez-utils
 xdg-desktop-portal-wlr
-hyprpolkit
+polkit
 gvfs
 gnome-keyring
 libsecret
