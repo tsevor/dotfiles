@@ -10,22 +10,6 @@ sudo pacman -Sy --needed --noconfirm git base-devel
 mkdir -p ~/.config
 mkdir -p ~/dev
 
-
-sudo cp $root/systemd/getty@tty1.service /etc/systemd/system/getty@tty1.service
-sudo sed -i s/USER/$USER/ /etc/systemd/system/getty@tty1.service
-
-cd ~/dev
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si --noconfirm
-cd ..
-rm -rf yay
-
-cd $root
-
-sudo pacman -Syu --noconfirm - < packages.txt
-yay -Syu --noconfirm - < packages_aur.txt
-
 ln -s $root/config/hypr          ~/.config
 ln -s $root/config/wofi          ~/.config
 ln -s $root/config/alacritty     ~/.config
@@ -43,7 +27,26 @@ ln -s $root/bash_aliases         ~/.bash_aliases
 ln -s $root/bash_profile         ~/.bash_profile
 ln -s $root/gtkrc-2.0            ~/.gtkrc-2.0
 
+sudo cp $root/systemd/getty@tty1.service /etc/systemd/system/getty@tty1.service
+sudo sed -i s/USER/$USER/ /etc/systemd/system/getty@tty1.service
+
+cd ~/dev
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si --noconfirm
+cd ..
+rm -rf yay
+
+cd $root
+
+sudo pacman -Syu --noconfirm - < packages.txt
+yay -Syu --noconfirm - < packages_aur.txt
+
 fc-cache -fv
+
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Overpass Mono 11'
 
 systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon
 
