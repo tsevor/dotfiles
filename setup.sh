@@ -4,9 +4,13 @@
 root=$(realpath $(dirname $0))
 cd $root
 
-# ask for sudo at the start and keep it alive
+# only ask for sudo once
 sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+echo "${USER} ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/setup_bypass > /dev/null
+cleanup() {
+    sudo rm -f /etc/sudoers.d/setup_bypass
+}
+trap cleanup EXIT
 
 sudo pacman -Sy --needed --noconfirm git base-devel
 
@@ -56,7 +60,8 @@ gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Overpass Mono 11'
 
-systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon bluetooth
+systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon
+sudo systemctl enable bluetooth
 
 # configure zen
 zen-browser --headless --screenshot /dev/null > /dev/null 2>&1 &
