@@ -46,6 +46,8 @@ yay -Syu --noconfirm - < packages.txt
 systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon
 
 # configure zen
+zen-browser --headless --screenshot /dev/null > /dev/null 2>&1
+sleep 1
 ZEN_USER_JS="$(find ~/.config/zen -maxdepth 1 -type d -name "*.Default (release)" | head -n 1)/user.js"
 ZEN_SETTING1='user_pref("zen.view.experimental-no-window-controls", true);'
 ZEN_SETTING2='user_pref("zen.theme.content-element-separation", 0);'
