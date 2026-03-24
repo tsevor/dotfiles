@@ -1,6 +1,7 @@
 base-devel
 bash-completion
 make
+nasm
 git
 openssh
 
