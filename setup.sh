@@ -15,6 +15,15 @@ ln -s $root/config/wofi          ~/.config
 ln -s $root/config/alacritty     ~/.config
 ln -s $root/config/micro         ~/.config
 ln -s $root/config/waybar        ~/.config
+ln -s $root/config/fontconfig    ~/.config
+ln -s $root/config/gtk-3.0       ~/.config
+ln -s $root/config/gtk-4.0       ~/.config
+ln -s $root/config/qt5ct         ~/.config
+ln -s $root/config/qt6ct         ~/.config
+ln -s $root/config/xsettingsd    ~/.config
+
+
+ln -s $root/gtkrc-2.0            ~/.gtkrc-2.0
 
 ln -s $root/bashrc               ~/.bashrc
 ln -s $root/bash_aliases         ~/.bash_aliases
@@ -32,5 +41,7 @@ rm -rf yay
 yay -Syu --noconfirm - < packages.txt
 
 systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon
+
+fc-cache -fv
 
 fastfetch

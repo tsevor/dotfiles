@@ -9,6 +9,7 @@ zip
 unzip
 ffmpeg
 
+man-db
 less
 micro
 btop
