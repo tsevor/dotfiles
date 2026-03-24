@@ -10,25 +10,6 @@ sudo pacman -Sy --needed --noconfirm git base-devel
 mkdir -p ~/.config
 mkdir -p ~/dev
 
-ln -s $root/config/hypr          ~/.config
-ln -s $root/config/wofi          ~/.config
-ln -s $root/config/alacritty     ~/.config
-ln -s $root/config/micro         ~/.config
-ln -s $root/config/waybar        ~/.config
-ln -s $root/config/fontconfig    ~/.config
-ln -s $root/config/gtk-3.0       ~/.config
-ln -s $root/config/gtk-4.0       ~/.config
-ln -s $root/config/qt5ct         ~/.config
-ln -s $root/config/qt6ct         ~/.config
-ln -s $root/config/xsettingsd    ~/.config
-
-
-ln -s $root/bashrc               ~/.bashrc
-ln -s $root/bash_aliases         ~/.bash_aliases
-ln -s $root/bash_profile         ~/.bash_profile
-ln -s $root/gtkrc-2.0            ~/.gtkrc-2.0
-
-fc-cache -fv
 
 sudo cp $root/systemd/getty@tty1.service /etc/systemd/system/getty@tty1.service
 sudo sed -i s/USER/$USER/ /etc/systemd/system/getty@tty1.service
@@ -45,6 +26,25 @@ cd $root
 sudo pacman -Syu --noconfirm - < packages.txt
 yay -Syu --noconfirm - < packages_aur.txt
 
+ln -s $root/config/hypr          ~/.config
+ln -s $root/config/wofi          ~/.config
+ln -s $root/config/alacritty     ~/.config
+ln -s $root/config/micro         ~/.config
+ln -s $root/config/waybar        ~/.config
+ln -s $root/config/fontconfig    ~/.config
+ln -s $root/config/gtk-3.0       ~/.config
+ln -s $root/config/gtk-4.0       ~/.config
+ln -s $root/config/qt5ct         ~/.config
+ln -s $root/config/qt6ct         ~/.config
+ln -s $root/config/xsettingsd    ~/.config
+
+ln -s $root/bashrc               ~/.bashrc
+ln -s $root/bash_aliases         ~/.bash_aliases
+ln -s $root/bash_profile         ~/.bash_profile
+ln -s $root/gtkrc-2.0            ~/.gtkrc-2.0
+
+fc-cache -fv
+
 systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon
 
 # configure zen
@@ -59,12 +59,15 @@ grep -qF "$ZEN_SETTING1" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING1" >> "
 grep -qF "$ZEN_SETTING2" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING2" >> "$ZEN_USER_JS"
 grep -qF "$ZEN_SETTING3" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING3" >> "$ZEN_USER_JS"
 
+grep -Po '(?<=^MimeType=).*' /usr/share/applications/zen.desktop | tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default zen.desktop {}
+
 cd ~/dev
 git clone https://github.com/ztchary/immy
 cd immy
 make immy
 sudo make install
-grep -Po '(?<=^MimeType=).*' ~/.local/share/applications/immy.desktop | tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default immy.desktop {}
+
+grep -Po '(?<=^MimeType=).*' /usr/share/applications/immy.desktop | tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default immy.desktop {}
 
 cd ~/dev
 git clone https://github.com/ztchary/restart
@@ -74,3 +77,9 @@ sudo make install
 
 
 fastfetch
+
+
+
+echo -e "\e[31mRemember to configure:\e[0m"
+echo -e "\e[31m    .config/hypr/land/monitors.conf\e[0m"
+echo -e "\e[31m    .config/hypr/hyprlock.conf\e[0m"
