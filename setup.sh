@@ -8,7 +8,7 @@ cd $root
 sudo -v
 echo "${USER} ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/setup_bypass > /dev/null
 cleanup() {
-    sudo rm -f /etc/sudoers.d/setup_bypass
+	sudo rm -f /etc/sudoers.d/setup_bypass
 }
 trap cleanup EXIT
 

@@ -1,4 +1,4 @@
-# Custom Theme translated from VS Code
+
 color-link default "#ffffff"
 color-link comment "#c4ab92"
 color-link identifier "#85ffeb"
@@ -18,26 +18,19 @@ color-link underlined "underline #34c58d"
 color-link error "#af1e6e"
 color-link todo "bold #e45716"
 
-# UI Elements
 color-link statusline "#000000,#ffffff"
 color-link line-number "#555555"
 color-link cursor-line "#222222"
 color-link color-column "#222222"
 
-# Add these to your ~/.config/micro/colorschemes/custom.micro
-
-# Functions & Methods (VS Code #8a9cff)
 color-link identifier.class "#44ffc1"
 color-link identifier.function "#8a9cff"
 color-link identifier.macro "#8a9cff"
 
-# Namespaces/Modules (VS Code #ffde74)
 color-link identifier.namespace "#ffde74"
 color-link preproc "#ffde74"
 
-# Specialized Punctuation
 color-link symbol.brackets "#ffbdbd"
 color-link symbol.tag "#34c58d"
 
-# Decorators (VS Code #b65252)
 color-link special.decorator "#b65252"

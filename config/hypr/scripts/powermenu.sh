@@ -10,14 +10,14 @@ options="$suspend\n$hibernate\n$logout\n$reboot\n$shutdown"
 selected=$(echo -e "$options" | wofi --show dmenu --width 200 --height 320 --prompt "Power Menu" --hide-search)
 
 case $selected in
-    "$shutdown")
-        systemctl poweroff ;;
-    "$reboot")
-        systemctl reboot ;;
-    "$suspend")
-        systemctl suspend ;;
-    "$hibernate")
-        systemctl hibernate ;;
-    "$logout")
-        hyprctl dispatch exit ;;
+	"$shutdown")
+		systemctl poweroff ;;
+	"$reboot")
+		systemctl reboot ;;
+	"$suspend")
+		systemctl suspend ;;
+	"$hibernate")
+		systemctl hibernate ;;
+	"$logout")
+		hyprctl dispatch exit ;;
 esac
