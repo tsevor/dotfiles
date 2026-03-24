@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
+
 root=$(realpath $(dirname $0))
 cd $root
 
-rm ~/.bashrc ~/.bash_profile
+# ask for sudo at the start and keep it alive
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 sudo pacman -Sy --needed --noconfirm git base-devel
+
+rm ~/.bashrc ~/.bash_profile
 
 mkdir -p ~/.config/Code/User
 mkdir -p ~/dev
@@ -22,7 +27,7 @@ ln -s $root/config/qt5ct      ~/.config
 ln -s $root/config/qt6ct      ~/.config
 ln -s $root/config/xsettingsd ~/.config
 ln -s $root/config/xdg-desktop-portal ~/.config
-# only settings
+
 ln -s $root/config/Code/User/settings.json ~/.config/Code/User/settings.json
 
 ln -s $root/bashrc               ~/.bashrc
