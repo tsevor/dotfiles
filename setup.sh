@@ -46,13 +46,16 @@ yay -Syu --noconfirm - < packages.txt
 systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon
 
 # configure zen
-zen-browser --headless --screenshot /dev/null > /dev/null 2>&1
+zen-browser --headless --screenshot /dev/null > /dev/null 2>&1 &
 sleep 1
+pkill zen-bin
 ZEN_USER_JS="$(find ~/.config/zen -maxdepth 1 -type d -name "*.Default (release)" | head -n 1)/user.js"
 ZEN_SETTING1='user_pref("zen.view.experimental-no-window-controls", true);'
 ZEN_SETTING2='user_pref("zen.theme.content-element-separation", 0);'
+ZEN_SETTING3='user_pref("zen.welcome-screen.seen", true);'
 grep -qF "$ZEN_SETTING1" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING1" >> "$ZEN_USER_JS"
 grep -qF "$ZEN_SETTING2" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING2" >> "$ZEN_USER_JS"
+grep -qF "$ZEN_SETTING3" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING3" >> "$ZEN_USER_JS"
 
 cd ~/dev
 git clone https://github.com/ztchary/immy
