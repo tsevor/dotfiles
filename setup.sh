@@ -49,7 +49,7 @@ gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Overpass Mono 11'
 
-systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon
+systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon bluetooth
 
 # configure zen
 zen-browser --headless --screenshot /dev/null > /dev/null 2>&1 &
@@ -63,7 +63,8 @@ grep -qF "$ZEN_SETTING1" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING1" >> "
 grep -qF "$ZEN_SETTING2" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING2" >> "$ZEN_USER_JS"
 grep -qF "$ZEN_SETTING3" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING3" >> "$ZEN_USER_JS"
 
-grep -Po '(?<=^MimeType=).*' /usr/share/applications/zen.desktop | tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default zen.desktop {}
+grep -Po '(?<=^MimeType=).*' /usr/share/applications/zen.desktop | \
+	tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default zen.desktop {}
 
 cd ~/dev
 git clone https://github.com/ztchary/immy
@@ -71,7 +72,8 @@ cd immy
 make immy
 sudo make install
 
-grep -Po '(?<=^MimeType=).*' /usr/share/applications/immy.desktop | tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default immy.desktop {}
+grep -Po '(?<=^MimeType=).*' /usr/share/applications/immy.desktop | \
+	tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default immy.desktop {}
 
 cd ~/dev
 git clone https://github.com/ztchary/restart
