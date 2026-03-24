@@ -1,9 +1,3 @@
-@define-color c_green #77ff77;
-@define-color c_yellow #ffff77;
-@define-color c_red #ff7777;
-@define-color c_white #ffffff;
-@define-color c_blue #77ccff;
-
 * {
 	border: none;
 	border-radius: 0;
@@ -15,7 +9,7 @@
 
 window#waybar {
 	background: transparent;
-	color: @c_white;
+	color: #ffffff;
 }
 
 #cpu,
@@ -48,22 +42,22 @@ window#waybar {
 	padding: 0;
 	background: transparent;
 }
-#mpris.playing { color: @c_green; }
-#mpris.paused { color: @c_yellow; }
+#mpris.playing { color: #77ff77; }
+#mpris.paused { color: #ffff77; }
 
-#cpu, #memory, #disk, #temperature, #battery { color: @c_green; }
-#cpu.warning, #memory.warning, #disk.warning, #battery.warning { color: @c_yellow; }
-#cpu.critical, #memory.critical, #disk.critical, #temperature.critical, #battery.critical { color: @c_red; }
+#cpu, #memory, #disk, #temperature, #battery { color: #77ff77; }
+#cpu.warning, #memory.warning, #disk.warning, #battery.warning { color: #ffff77; }
+#cpu.critical, #memory.critical, #disk.critical, #temperature.critical, #battery.critical { color: #ff7777; }
 
-#battery.charging, #battery.plugged { color: @c_blue; }
+#battery.charging, #battery.plugged { color: #77ccff; }
 
 #workspaces button {
 	padding: 0 5px;
-	color: #6c7086;
+	color: #777777;
 	background: transparent;
 }
 #workspaces button.active {
-	color: @c_white;
+	color: #ffffff;
 	text-decoration: underline;
 	background: transparent;
 }

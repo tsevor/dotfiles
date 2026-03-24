@@ -50,6 +50,9 @@ libsecret
 udisks2
 libsecret
 speech-dispatcher
+cups
+cups-filters
+ghostscript
 
 noto-fonts
 noto-fonts-emoji
@@ -63,6 +66,7 @@ nwg-look
 qt6ct
 qt5ct
 
+system-config-printer
 blueman
 vlc
 spotify-launcher

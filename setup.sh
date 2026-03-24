@@ -61,7 +61,7 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Overpass Mono 11'
 
 systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon
-sudo systemctl enable bluetooth
+sudo systemctl enable bluetooth cups.socket cups.service
 
 # configure zen
 zen-browser --headless --screenshot /dev/null > /dev/null 2>&1 &
