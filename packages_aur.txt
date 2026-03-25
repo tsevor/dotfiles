@@ -1,4 +1,1 @@
-equicord
 zen-browser-bin
-visual-studio-code-bin
-epson-inkjet-printer-escpr2

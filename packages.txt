@@ -87,5 +87,4 @@ qt5ct
 system-config-printer
 blueman
 vlc
-spotify-launcher
 chromium
