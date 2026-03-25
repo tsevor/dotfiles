@@ -79,6 +79,7 @@ grep -Po '(?<=^MimeType=).*' /usr/share/applications/zen.desktop | \
 	tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default zen.desktop {}
 
 cd ~/dev
+rm -rf immy
 git clone https://github.com/ztchary/immy
 cd immy
 make immy
@@ -88,6 +89,7 @@ grep -Po '(?<=^MimeType=).*' /usr/share/applications/immy.desktop | \
 	tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default immy.desktop {}
 
 cd ~/dev
+rm -rf restart
 git clone https://github.com/ztchary/restart
 cd restart
 make restart
