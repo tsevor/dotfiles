@@ -132,7 +132,8 @@ sudo make install
 # ~/.config/hypr/land/monitors.conf
 # ~/.config/hypr/hyprlock.conf
 # ~/.config/hypr/hyprpaper.conf
-python3 settings.py
+cd $root
+python3 $root/settings.py
 
 # print system info to look cool
 echo
