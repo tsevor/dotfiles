@@ -1,0 +1,6 @@
+background {
+	monitor = NAME
+	path = ~/.config/hypr/images/bgRESOLUTION.png
+	blur_passes = 3
+	blur_size = 7
+}

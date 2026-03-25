@@ -4,15 +4,9 @@ general {
 	no_fade_in = false
 }
 
-background {
-	monitor = eDP-1
-	path = ~/.config/hypr/images/bg1920x1200.png
-	blur_passes = 3
-	blur_size = 7
-}
-
+BG_BLOCK
 input-field {
-	monitor = eDP-1
+	monitor = PRIMARY
 	size = 500, 100
 	outline_thickness = 3
 	dots_size = 0.3

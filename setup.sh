@@ -127,17 +127,16 @@ fi
 make restart
 sudo make install
 
+# run manual configuration script for
+# ~/.config/hypr/land/autostart.conf
+# ~/.config/hypr/land/monitors.conf
+# ~/.config/hypr/hyprlock.conf
+# ~/.config/hypr/hyprpaper.conf
+python3 settings.py
+
 # print system info to look cool
 echo
 fastfetch
 
-# some last instructions on system specific things
-echo -e "\e[93m"
-echo "Remember to configure:"
-echo "    ~/.config/hypr/land/autostart.conf"
-echo "    ~/.config/hypr/land/monitors.conf"
-echo "    ~/.config/hypr/hyprlock.conf"
-echo "    ~/.config/hypr/hyprpaper.conf"
-echo
-echo "Then reboot."
-echo -e "\e[0m"
+# final instruction
+echo -e "\e[93mReboot to apply all changes.\e[0m"
