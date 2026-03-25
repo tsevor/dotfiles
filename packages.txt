@@ -1,9 +1,13 @@
+git
+openssh
+
 base-devel
 bash-completion
 make
 nasm
-git
-openssh
+python
+python-requests
+python-pygame
 
 sdl3
 sdl3_image

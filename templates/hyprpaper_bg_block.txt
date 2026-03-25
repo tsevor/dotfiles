@@ -1,6 +1,0 @@
-preload = ~/.config/hypr/images/bgRESOLUTION.png
-wallpaper {
-	monitor = NAME
-	path = ~/.config/hypr/images/bgRESOLUTION.png
-}
-

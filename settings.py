@@ -1,10 +1,36 @@
 import subprocess
+import os
+
+MONITORS_OUT = "./home/config/hypr/land/monitors.conf"
+AUTOSTART_OUT = "./home/config/hypr/land/autostart.conf"
+HYPRPAPER_OUT = "./home/config/hypr/hyprpaper.conf"
+HYPRLOCK_OUT = "./home/config/hypr/hyprlock.conf"
+
+with open("./templates/disclaimer.txt") as f:
+	DISCLAIMER = f.read()
+
+def homepath(path):
+    expath = os.path.expanduser(path)
+    abspath = os.path.abspath(expath)
+    home = os.path.expanduser("~")
+    if abspath.startswith(home):
+        relpath = "~" + abspath[len(home):]
+        return relpath
 
 def get_autostart_conf(enabled):
+	paths = [
+		"./templates/autostart.conf"
+	]
 	s = ["" if x else "# " for x in enabled]
-	with open("./templates/autostart.txt") as f:
+	with open(paths[0]) as f:
 		template = f.read()
-	return template.format(*s)
+	return DISCLAIMER\
+			.replace("{CONFIG_PATH}", " and ".join(map(homepath, paths)))\
+		+ template\
+			.replace("{ENABLE_LOCK}", s[0])\
+			.replace("{ENABLE_IDLE}", s[1])\
+			.replace("{ENABLE_STAT}", s[2])\
+			.replace("{ENABLE_WALL}", s[3])
 
 def get_monitors():
 	result = subprocess.run(
@@ -33,59 +59,77 @@ def get_monitors():
 	return monitors
 
 def get_hyprlock_conf(monitors, primary):
-	with open("./templates/hyprlock.txt") as f:
+	paths = [
+		"./templates/hyprlock.conf",
+		"./templates/hyprlock_bg_block.conf"
+	]
+	with open(paths[0]) as f:
 		template = f.read()
-	with open("./templates/hyprlock_bg_block.txt") as f:
+	with open(paths[1]) as f:
 		bg_template = f.read()
 
 	bg_block = ""
 	for name, mode in monitors:
 		res = mode.split("@")[0]
 		bg_block += bg_template\
-			.replace("NAME", name)\
-			.replace("RESOLUTION", res)
-	return template\
-		.replace("BG_BLOCK", bg_block)\
-		.replace("PRIMARY", primary)
+			.replace("{NAME}", name)\
+			.replace("{RESOLUTION}", res)
+	return DISCLAIMER\
+			.replace("{CONFIG_PATH}", " and ".join(map(homepath, paths)))\
+		+ template\
+			.replace("{BG_BLOCK}", bg_block)\
+			.replace("{PRIMARY}", primary)
 
 def get_hyprpaper_conf(monitors):
-	with open("./templates/hyprpaper.txt") as f:
+	paths = [
+		"./templates/hyprpaper.conf",
+		"./templates/hyprpaper_bg_block.conf"
+	]
+	with open(paths[0]) as f:
 		template = f.read()
-	with open("./templates/hyprpaper_bg_block.txt") as f:
+	with open(paths[1]) as f:
 		bg_template = f.read()
 
 	bg_block = ""
 	for name, mode in monitors:
 		res = mode.split("@")[0]
 		bg_block += bg_template\
-			.replace("NAME", name)\
-			.replace("RESOLUTION", res)
-	return template.replace("BG_BLOCK", bg_block)
+			.replace("{NAME}", name)\
+			.replace("{RESOLUTION}", res)
+	return DISCLAIMER\
+			.replace("{CONFIG_PATH}", " and ".join(map(homepath, paths)))\
+		+ template\
+			.replace("{BG_BLOCK}", bg_block)
 
 def get_monitors_conf(monitors, primary, positions, scales, workspaces):
-	with open("./templates/monitors.txt") as f:
+	paths = [
+		"./templates/monitors.conf"
+	]
+	with open(paths[0]) as f:
 		template = f.read().split("\n")
-	monitor_template = template[0] + "\n"
-	workspace_template = template[1] + "\n"
-	template = "\n".join(template[2:])
+	monitor_template = template[1] + "\n"
+	workspace_template = template[2] + "\n"
+	template = "\n".join(template[3:])
 
 	monitor_block = ""
 	for i, (name, mode) in enumerate(monitors):
 		monitor_block += monitor_template\
-			.replace("NAME", name)\
-			.replace("MODE", mode)\
-			.replace("POSITION", positions[i])\
-			.replace("SCALE", scales[i])
+			.replace("{NAME}", name)\
+			.replace("{MODE}", mode)\
+			.replace("{POSITION}", positions[i])\
+			.replace("{SCALE}", scales[i])
 	workspace_block = ""
 	for i, name in enumerate(workspaces):
 		workspace_block += workspace_template\
-			.replace("WORKSPACE", str(i))\
-			.replace("NAME", name)
+			.replace("{WORKSPACE}", str(i))\
+			.replace("{NAME}", name)
 
-	return monitor_block\
+	return DISCLAIMER\
+			.replace("{CONFIG_PATH}", " and ".join(map(homepath, paths)))\
+		+ monitor_block\
 		+ workspace_block\
 		+ template\
-			.replace("PRIMARY", primary)
+			.replace("{PRIMARY}", primary)
 
 def get_input(prompt):
     print(prompt, end="", flush=True)
@@ -93,15 +137,23 @@ def get_input(prompt):
         return terminal.readline().strip()
 
 if __name__ == "__main__":
-	if not get_input("Configure features and monitors? [y/N] ").startswith("y"):
-		exit(0)
+	if (
+		os.path.isfile(MONITORS_OUT)
+		and os.path.isfile(AUTOSTART_OUT)
+		and os.path.isfile(HYPRPAPER_OUT)
+		and os.path.isfile(HYPRLOCK_OUT)
+	):
+		print("\x1b[93mGenerated configs already exist.\x1b[0m")
+		if not get_input("Configure features and monitors? [y/N] ").startswith("y"):
+			exit(0)
 
 	en = [False for i in range(4)]
 	en[0] = not get_input("Enable lock on start? [Y/n] ").startswith("n")
 	en[1] = not get_input("Enable idle dim, lock, and sleep? [Y/n] ").startswith("n")
 	en[2] = not get_input("Enable status bar? [Y/n] ").startswith("n")
 	en[3] = not get_input("Enable wallpaper? [Y/n] ").startswith("n")
-	with open("./home/config/hypr/land/autostart.conf", "w") as f:
+
+	with open(AUTOSTART_OUT, "w") as f:
 		f.write(get_autostart_conf(en))
 
 	monitors = {}
@@ -126,10 +178,10 @@ if __name__ == "__main__":
 	if primary not in range(len(monitors)):
 		primary = 0
 
-	with open("./home/config/hypr/hyprlock.conf", "w") as f:
+	with open(HYPRLOCK_OUT, "w") as f:
 		f.write(get_hyprlock_conf(monitors, monitors[primary][0]))
 
-	with open("./home/config/hypr/hyprpaper.conf", "w") as f:
+	with open(HYPRPAPER_OUT, "w") as f:
 		f.write(get_hyprpaper_conf(monitors))
 
 	positions = []
@@ -178,5 +230,5 @@ if __name__ == "__main__":
 			n = primary
 		workspaces.append(monitors[n][0])
 
-	with open("./home/config/hypr/land/monitors.conf", "w") as f:
+	with open(MONITORS_OUT, "w") as f:
 		f.write(get_monitors_conf(monitors, monitors[primary][0], positions, scales, workspaces))

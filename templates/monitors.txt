@@ -1,4 +1,0 @@
-monitor = NAME, MODE, POSITION, SCALE
-workspace = WORKSPACE, monitor:NAME
-
-exec-once = xrandr --output PRIMARY --primary
