@@ -93,6 +93,9 @@ def get_input(prompt):
         return terminal.readline().strip()
 
 if __name__ == "__main__":
+	if not get_input("Configure features and monitors? [y/N] ").startswith("y"):
+		exit(0)
+
 	en = [False for i in range(4)]
 	en[0] = not get_input("Enable lock on start? [Y/n] ").startswith("n")
 	en[1] = not get_input("Enable idle dim, lock, and sleep? [Y/n] ").startswith("n")

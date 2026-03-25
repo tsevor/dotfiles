@@ -135,6 +135,9 @@ sudo make install
 cd $root
 python3 $root/settings.py
 
+# reload to apply the changes made
+[ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && hyprctl reload
+
 # print system info to look cool
 echo
 fastfetch
