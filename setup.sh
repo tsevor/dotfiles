@@ -33,12 +33,14 @@ ln -s $root/home/config/xdg-desktop-portal ~/.config
 ln -s $root/home/config/Code/User/settings.json ~/.config/Code/User/settings.json
 
 rm ~/.bashrc
+rm ~/.bash_aliases
 rm ~/.bash_profile
+rm ~/.gtkrc-2.0
 
-ln -s $root/home/bashrc               ~/.bashrc
-ln -s $root/home/bash_aliases         ~/.bash_aliases
-ln -s $root/home/bash_profile         ~/.bash_profile
-ln -s $root/home/gtkrc-2.0            ~/.gtkrc-2.0
+ln -s $root/home/bashrc            ~/.bashrc
+ln -s $root/home/bash_aliases      ~/.bash_aliases
+ln -s $root/home/bash_profile      ~/.bash_profile
+ln -s $root/home/gtkrc-2.0         ~/.gtkrc-2.0
 
 sudo cp $root/systemd/getty@tty1.service /etc/systemd/system/getty@tty1.service
 sudo sed -i s/USER/$USER/ /etc/systemd/system/getty@tty1.service
