@@ -1,4 +1,3 @@
-import os
 import subprocess
 
 def get_autostart_conf(enabled):
@@ -88,13 +87,17 @@ def get_monitors_conf(monitors, primary, positions, scales, workspaces):
 		+ template\
 			.replace("PRIMARY", primary)
 
+def get_input(prompt):
+    print(prompt, end="", flush=True)
+    with open("/dev/tty", "r") as terminal:
+        return terminal.readline().strip()
 
 if __name__ == "__main__":
 	en = [False for i in range(4)]
-	en[0] = not input("Enable lock on start? [Y/n] ").startswith("n")
-	en[1] = not input("Enable idle dim, lock, and sleep? [Y/n] ").startswith("n")
-	en[2] = not input("Enable status bar? [Y/n] ").startswith("n")
-	en[3] = not input("Enable wallpaper? [Y/n] ").startswith("n")
+	en[0] = not get_input("Enable lock on start? [Y/n] ").startswith("n")
+	en[1] = not get_input("Enable idle dim, lock, and sleep? [Y/n] ").startswith("n")
+	en[2] = not get_input("Enable status bar? [Y/n] ").startswith("n")
+	en[3] = not get_input("Enable wallpaper? [Y/n] ").startswith("n")
 	with open("./home/config/hypr/land/autostart.conf", "w") as f:
 		f.write(get_autostart_conf(en))
 
@@ -103,7 +106,7 @@ if __name__ == "__main__":
 		print(f"Select mode for monitor {name}: (default: 1)")
 		for i, m in enumerate(modes):
 			print(f" {i+1: 4d}: {m}")
-		n = input("> ")
+		n = get_input("> ")
 		if not n.isdigit():
 			n = "1"
 		monitors[name] = modes[int(n) - 1]
@@ -113,7 +116,7 @@ if __name__ == "__main__":
 	print(f"Select primary monitor: (default: 1)")
 	for i, (n, m) in enumerate(monitors):
 		print(f" {i+1: 4d}: {n}: {m}")
-	n = input("> ")
+	n = get_input("> ")
 	if not n.isdigit():
 		n = "1"
 	primary = int(n) - 1
@@ -142,7 +145,7 @@ if __name__ == "__main__":
 			print(f"    Right:  {psize[0]}x{(psize[1] - msize[1]) // 2}")
 			print(f"    Top:    {(psize[0] - msize[0]) // 2}x{-msize[1]}")
 			print(f"    Bottom: {(psize[0] - msize[0]) // 2}x{psize[1]}")
-		p = input("> ")
+		p = get_input("> ")
 		if p == "":
 			p = "0x0"
 		try:
@@ -154,7 +157,7 @@ if __name__ == "__main__":
 	scales = []
 	for i in range(len(monitors)):
 		print(f"Set scale for monitor {monitors[i][0]}: (default: 1)")
-		n = input("> ")
+		n = get_input("> ")
 		if not n.isdigit():
 			n = "1"
 		scales.append(n)
@@ -164,7 +167,7 @@ if __name__ == "__main__":
 		print(f"Select monitor for workspace {i + 1}: (default: primary)")
 		for i, (n, m) in enumerate(monitors):
 			print(f" {i+1: 4d}: {n}: {m}{" (primary)" if i == primary else ""}")
-		n = input("> ")
+		n = get_input("> ")
 		if not n.isdigit():
 			n = primary + 1
 		n = int(n) - 1
