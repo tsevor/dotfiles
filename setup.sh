@@ -82,13 +82,8 @@ systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring
 sudo systemctl enable bluetooth cups.socket cups.service
 
 # configure zen to make it look nicer
+zen-browser --headless --screenshot /dev/null
 ZEN_USER_JS="$(find ~/.config/zen -maxdepth 1 -type d -name "*.Default (release)" | head -n 1)/user.js"
-# if js not found, init zen
-if [ ! -n "$ZEN_USER_JS" ]
-then
-	zen-browser --headless --screenshot /dev/null
-	ZEN_USER_JS="$(find ~/.config/zen -maxdepth 1 -type d -name "*.Default (release)" | head -n 1)/user.js"
-fi
 ZEN_SETTING1='user_pref("zen.view.experimental-no-window-controls", true);'
 ZEN_SETTING2='user_pref("zen.theme.content-element-separation", 0);'
 ZEN_SETTING3='user_pref("zen.welcome-screen.seen", true);'
