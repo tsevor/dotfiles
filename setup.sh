@@ -86,9 +86,7 @@ ZEN_USER_JS="$(find ~/.config/zen -maxdepth 1 -type d -name "*.Default (release)
 # if js not found, init zen
 if [ ! -n "$ZEN_USER_JS" ]
 then
-	zen-browser --headless --screenshot /dev/null > /dev/null 2>&1 &
-	sleep 1
-	pgrep zen-bin &> /dev/null && killall zen-bin
+	zen-browser --headless --screenshot /dev/null
 	ZEN_USER_JS="$(find ~/.config/zen -maxdepth 1 -type d -name "*.Default (release)" | head -n 1)/user.js"
 fi
 ZEN_SETTING1='user_pref("zen.view.experimental-no-window-controls", true);'
