@@ -136,7 +136,7 @@ def get_input(prompt):
     with open("/dev/tty", "r") as terminal:
         return terminal.readline().strip()
 
-if __name__ == "__main__":
+def main():
 	if (
 		os.path.isfile(MONITORS_OUT)
 		and os.path.isfile(AUTOSTART_OUT)
@@ -232,3 +232,6 @@ if __name__ == "__main__":
 
 	with open(MONITORS_OUT, "w") as f:
 		f.write(get_monitors_conf(monitors, monitors[primary][0], positions, scales, workspaces))
+
+if __name__ == "__main__":
+	main()
