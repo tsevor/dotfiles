@@ -53,12 +53,15 @@ bluez
 bluez-utils
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
+wl-clipboard
 polkit
+polkit-gnome
 gvfs
+gvfs-smb
+gvfs-dnssd
 gnome-keyring
 libsecret
 udisks2
-libsecret
 speech-dispatcher
 cups
 cups-filters

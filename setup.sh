@@ -12,35 +12,36 @@ cleanup() {
 }
 trap cleanup EXIT
 
-sudo pacman -Sy --needed --noconfirm git base-devel
+sudo pacman -Syu --needed --noconfirm git base-devel
 
 mkdir -p ~/.config/Code/User
 mkdir -p ~/dev
+mkdir -p ~/Pictures/screenshots
 
-ln -s $root/home/config/hypr       ~/.config
-ln -s $root/home/config/wofi       ~/.config
-ln -s $root/home/config/alacritty  ~/.config
-ln -s $root/home/config/micro      ~/.config
-ln -s $root/home/config/waybar     ~/.config
-ln -s $root/home/config/fontconfig ~/.config
-ln -s $root/home/config/gtk-3.0    ~/.config
-ln -s $root/home/config/gtk-4.0    ~/.config
-ln -s $root/home/config/qt5ct      ~/.config
-ln -s $root/home/config/qt6ct      ~/.config
-ln -s $root/home/config/xsettingsd ~/.config
-ln -s $root/home/config/xdg-desktop-portal ~/.config
+ln -sfn $root/home/config/hypr       ~/.config
+ln -sfn $root/home/config/wofi       ~/.config
+ln -sfn $root/home/config/alacritty  ~/.config
+ln -sfn $root/home/config/micro      ~/.config
+ln -sfn $root/home/config/waybar     ~/.config
+ln -sfn $root/home/config/fontconfig ~/.config
+ln -sfn $root/home/config/gtk-3.0    ~/.config
+ln -sfn $root/home/config/gtk-4.0    ~/.config
+ln -sfn $root/home/config/qt5ct      ~/.config
+ln -sfn $root/home/config/qt6ct      ~/.config
+ln -sfn $root/home/config/xsettingsd ~/.config
+ln -sfn $root/home/config/xdg-desktop-portal ~/.config
 
-ln -s $root/home/config/Code/User/settings.json ~/.config/Code/User/settings.json
+ln -sfn $root/home/config/Code/User/settings.json ~/.config/Code/User/settings.json
 
 rm ~/.bashrc
 rm ~/.bash_aliases
 rm ~/.bash_profile
 rm ~/.gtkrc-2.0
 
-ln -s $root/home/bashrc            ~/.bashrc
-ln -s $root/home/bash_aliases      ~/.bash_aliases
-ln -s $root/home/bash_profile      ~/.bash_profile
-ln -s $root/home/gtkrc-2.0         ~/.gtkrc-2.0
+ln -sfn $root/home/bashrc            ~/.bashrc
+ln -sfn $root/home/bash_aliases      ~/.bash_aliases
+ln -sfn $root/home/bash_profile      ~/.bash_profile
+ln -sfn $root/home/gtkrc-2.0         ~/.gtkrc-2.0
 
 sudo cp $root/systemd/getty@tty1.service /etc/systemd/system/getty@tty1.service
 sudo sed -i s/USER/$USER/ /etc/systemd/system/getty@tty1.service
@@ -103,3 +104,5 @@ echo -e "\e[93mRemember to configure:\e[0m"
 echo -e "\e[93m    ~/.config/hypr/land/monitors.conf\e[0m"
 echo -e "\e[93m    ~/.config/hypr/hyprlock.conf\e[0m"
 echo -e "\e[93m    ~/.config/hypr/hyprpaper.conf\e[0m"
+echo
+echo -e "\e[93mThen reboot.\e[0m"
