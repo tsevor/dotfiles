@@ -50,8 +50,8 @@ rm -rf yay
 
 cd $root
 
-sudo pacman -Syu --noconfirm - < packages.txt
-yay -Syu --noconfirm - < packages_aur.txt
+sudo pacman -Syu --needed --noconfirm - < packages.txt
+yay -Syu --needed --noconfirm - < packages_aur.txt
 
 fc-cache -fv
 xdg-user-dirs-update
