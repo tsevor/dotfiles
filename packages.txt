@@ -53,6 +53,7 @@ bluez
 bluez-utils
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
+xdg-user-dirs
 wl-clipboard
 polkit
 polkit-gnome

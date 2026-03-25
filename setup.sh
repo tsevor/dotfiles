@@ -46,6 +46,8 @@ ln -sfn $root/home/gtkrc-2.0         ~/.gtkrc-2.0
 sudo cp $root/systemd/getty@tty1.service /etc/systemd/system/getty@tty1.service
 sudo sed -i s/USER/$USER/ /etc/systemd/system/getty@tty1.service
 
+sudo sed -i 's/^#\?HandlePowerKey=.*/HandlePowerKey=ignore/' /etc/systemd/logind.conf
+
 cd ~/dev
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -59,6 +61,7 @@ sudo pacman -Syu --noconfirm - < packages.txt
 yay -Syu --noconfirm - < packages_aur.txt
 
 fc-cache -fv
+xdg-user-dirs-update
 
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
