@@ -93,9 +93,9 @@ cd restart
 make restart
 sudo make install
 
-
+echo
 fastfetch
 
 echo -e "\e[93mRemember to configure:\e[0m"
-echo -e "\e[93m    .config/hypr/land/monitors.conf\e[0m"
-echo -e "\e[93m    .config/hypr/hyprlock.conf\e[0m"
+echo -e "\e[93m    ~/.config/hypr/land/monitors.conf\e[0m"
+echo -e "\e[93m    ~/.config/hypr/hyprlock.conf\e[0m"
