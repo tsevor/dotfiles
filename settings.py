@@ -213,7 +213,7 @@ if __name__ == "__main__":
 	for i in range(len(monitors)):
 		print(f"Set scale for monitor {monitors[i][0]}: (default: 1)")
 		n = get_input("> ")
-		if not n.isdigit():
+		if not n.isdecimal():
 			n = "1"
 		scales.append(n)
 
