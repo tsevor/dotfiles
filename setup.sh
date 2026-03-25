@@ -14,30 +14,31 @@ trap cleanup EXIT
 
 sudo pacman -Sy --needed --noconfirm git base-devel
 
-rm ~/.bashrc ~/.bash_profile
-
 mkdir -p ~/.config/Code/User
 mkdir -p ~/dev
 
-ln -s $root/config/hypr       ~/.config
-ln -s $root/config/wofi       ~/.config
-ln -s $root/config/alacritty  ~/.config
-ln -s $root/config/micro      ~/.config
-ln -s $root/config/waybar     ~/.config
-ln -s $root/config/fontconfig ~/.config
-ln -s $root/config/gtk-3.0    ~/.config
-ln -s $root/config/gtk-4.0    ~/.config
-ln -s $root/config/qt5ct      ~/.config
-ln -s $root/config/qt6ct      ~/.config
-ln -s $root/config/xsettingsd ~/.config
-ln -s $root/config/xdg-desktop-portal ~/.config
+ln -s $root/home/config/hypr       ~/.config
+ln -s $root/home/config/wofi       ~/.config
+ln -s $root/home/config/alacritty  ~/.config
+ln -s $root/home/config/micro      ~/.config
+ln -s $root/home/config/waybar     ~/.config
+ln -s $root/home/config/fontconfig ~/.config
+ln -s $root/home/config/gtk-3.0    ~/.config
+ln -s $root/home/config/gtk-4.0    ~/.config
+ln -s $root/home/config/qt5ct      ~/.config
+ln -s $root/home/config/qt6ct      ~/.config
+ln -s $root/home/config/xsettingsd ~/.config
+ln -s $root/home/config/xdg-desktop-portal ~/.config
 
-ln -s $root/config/Code/User/settings.json ~/.config/Code/User/settings.json
+ln -s $root/home/config/Code/User/settings.json ~/.config/Code/User/settings.json
 
-ln -s $root/bashrc               ~/.bashrc
-ln -s $root/bash_aliases         ~/.bash_aliases
-ln -s $root/bash_profile         ~/.bash_profile
-ln -s $root/gtkrc-2.0            ~/.gtkrc-2.0
+rm ~/.bashrc
+rm ~/.bash_profile
+
+ln -s $root/home/bashrc               ~/.bashrc
+ln -s $root/home/bash_aliases         ~/.bash_aliases
+ln -s $root/home/bash_profile         ~/.bash_profile
+ln -s $root/home/gtkrc-2.0            ~/.gtkrc-2.0
 
 sudo cp $root/systemd/getty@tty1.service /etc/systemd/system/getty@tty1.service
 sudo sed -i s/USER/$USER/ /etc/systemd/system/getty@tty1.service
