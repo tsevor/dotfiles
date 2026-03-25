@@ -7,11 +7,21 @@ openssh
 
 sdl3
 sdl3_image
-
+ffmpeg
 tar
 zip
 unzip
-ffmpeg
+zstd
+unrar
+7zip
+xz
+bzip2
+gzip
+lzop
+lz4
+lzip
+pigz
+pbzip2
 
 man-db
 less
