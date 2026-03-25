@@ -1,3 +1,3 @@
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[ -f ~/.bashrc ] && . ~/.bashrc
 
 tty | grep -q tty1 && nice -n -10 start-hyprland
