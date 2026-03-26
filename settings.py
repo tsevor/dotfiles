@@ -121,7 +121,7 @@ def get_monitors_conf(monitors, primary, positions, scales, workspaces):
 	workspace_block = ""
 	for i, name in enumerate(workspaces):
 		workspace_block += workspace_template\
-			.replace("{WORKSPACE}", str(i))\
+			.replace("{WORKSPACE}", str(i + 1))\
 			.replace("{NAME}", name)
 
 	return DISCLAIMER\
