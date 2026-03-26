@@ -9,6 +9,8 @@ curl https://slambodia.com/files/setup.sh | bash
 
 that link hosts the script at [./get.sh](./get.sh)
 
+running the command can also be used to update the
+existing configuration if it matches this one
 
 some config files in ~/.config/hypr are generated,
 these have a disclaimer at the top
