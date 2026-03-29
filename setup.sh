@@ -79,7 +79,7 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'Overpass Mono 11'
 
 # enable services
 systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon
-sudo systemctl enable bluetooth cups.socket cups.service
+sudo systemctl enable bluetooth cups.socket udisks2.service
 
 # configure zen to make it look nicer
 if [ ! -d ~/.config/zen ]
