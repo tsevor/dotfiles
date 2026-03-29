@@ -17,3 +17,5 @@ these have a disclaimer at the top
 
 don't edit these directly, instead, edit the files
 in ./templates
+
+it installs the cachyos repos for optimization

@@ -38,20 +38,17 @@ rm -f ~/.bash_profile       ; ln -sfn $root/home/bash_profile      ~/.bash_profi
 rm -f ~/.gtkrc-2.0          ; ln -sfn $root/home/gtkrc-2.0         ~/.gtkrc-2.0
 
 
-# get the suff needed for yay
-sudo pacman -Syu --needed --noconfirm git base-devel
+# install cachyos repos and keyring
+curl -O https://mirror.cachyos.org/cachyos-repo.tar.xz
+tar xvf cachyos-repo.tar.xz
+yes | sudo cachyos-repo/cachyos-repo.sh
+rm -rf cachyos-repo.tar.xz cachyos-repo
 
-# if yay is installed, skip it
-if ! command -v yay &> /dev/null
-then
-	# install yay
-	cd ~/dev
-	git clone https://aur.archlinux.org/yay.git
-	cd yay
-	makepkg -si --noconfirm
-	cd ..
-	rm -rf yay
-fi
+# force any existing packages to use the cachyos repos
+sudo pacman -Syuu --noconfirm --quiet
+
+# install yay using cachyos repo
+sudo pacman -S --needed --noconfirm yay
 
 cd $root
 
