@@ -39,16 +39,21 @@ rm -f ~/.gtkrc-2.0          ; ln -sfn $root/home/gtkrc-2.0         ~/.gtkrc-2.0
 
 
 # install cachyos repos and keyring
-curl -O https://mirror.cachyos.org/cachyos-repo.tar.xz
-tar xvf cachyos-repo.tar.xz
-yes | sudo cachyos-repo/cachyos-repo.sh
-rm -rf cachyos-repo.tar.xz cachyos-repo
+if ! grep "cachyos" /etc/pacman.conf > /dev/null
+then
+	curl -O https://mirror.cachyos.org/cachyos-repo.tar.xz
+	tar xvf cachyos-repo.tar.xz
+	cd cachyos-repo
+	sed -i 's/pacman /pacman --noconfirm /g' cachyos-repo.sh
+	yes | sudo cachyos-repo.sh --install
+	cd ..
+	rm -rf cachyos-repo.tar.xz cachyos-repo
+fi
 
-# force any existing packages to use the cachyos repos
-sudo pacman -Syuu --noconfirm --quiet
+sudo pacman -Syuu --needed --noconfirm
 
 # install yay using cachyos repo
-sudo pacman -S --needed --noconfirm yay
+sudo pacman -Syu --needed --noconfirm yay
 
 cd $root
 
