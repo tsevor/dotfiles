@@ -15,7 +15,6 @@ trap cleanup EXIT
 # make some directories for stuff to land in
 mkdir -p ~/.config
 mkdir -p ~/dev
-mkdir -p ~/Pictures/screenshots
 
 # link folders in .config, removing if needed
 rm -rf ~/.config/hypr       ; ln -sfn $root/home/config/hypr       ~/.config
@@ -39,18 +38,16 @@ rm -f ~/.gtkrc-2.0          ; ln -sfn $root/home/gtkrc-2.0         ~/.gtkrc-2.0
 
 
 # install cachyos repos and keyring
-if ! grep "cachyos" /etc/pacman.conf > /dev/null
+if ! grep -q "cachyos" /etc/pacman.conf
 then
 	curl -O https://mirror.cachyos.org/cachyos-repo.tar.xz
 	tar xvf cachyos-repo.tar.xz
 	cd cachyos-repo
 	sed -i 's/pacman /pacman --noconfirm /g' cachyos-repo.sh
-	yes | sudo cachyos-repo.sh --install
+	sudo bash cachyos-repo.sh --install
 	cd ..
 	rm -rf cachyos-repo.tar.xz cachyos-repo
 fi
-
-sudo pacman -Syuu --needed --noconfirm
 
 # install yay using cachyos repo
 sudo pacman -Syu --needed --noconfirm yay
