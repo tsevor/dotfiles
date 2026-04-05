@@ -80,7 +80,7 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'Overpass Mono 11'
 systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon
 sudo systemctl enable bluetooth cups.socket udisks2.service
 
-# configure zen to make it look nicer
+# configure zen to make it look nicer and function better
 if [ ! -d ~/.config/zen ]
 then
 	zen-browser --headless --screenshot /dev/null &> /dev/null &
@@ -88,13 +88,18 @@ then
 	killall -q zen-bin
 	mkdir -p ~/.config/zen
 fi
+
 ZEN_USER_JS="$(find ~/.config/zen -maxdepth 1 -type d -name "*.Default (release)" | head -n 1)/user.js"
+
 ZEN_SETTING1='user_pref("zen.view.experimental-no-window-controls", true);'
 ZEN_SETTING2='user_pref("zen.theme.content-element-separation", 0);'
 ZEN_SETTING3='user_pref("zen.welcome-screen.seen", true);'
+ZEN_SETTING4='user_pref("zen.window-sync.enabled", false);'
+
 grep -qF "$ZEN_SETTING1" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING1" >> "$ZEN_USER_JS"
 grep -qF "$ZEN_SETTING2" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING2" >> "$ZEN_USER_JS"
 grep -qF "$ZEN_SETTING3" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING3" >> "$ZEN_USER_JS"
+grep -qF "$ZEN_SETTING4" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING4" >> "$ZEN_USER_JS"
 
 # make zen default for its supported mime types
 grep -Po '(?<=^MimeType=).*' /usr/share/applications/zen.desktop | \
