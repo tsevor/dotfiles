@@ -135,6 +135,23 @@ fi
 make restart
 sudo make install
 
+cd $root
+
+# ask user if they want the extra packages
+if ! pacman -Qq - < packages_extra.txt > /dev/null
+then
+	echo "Extra packages:"
+	cat packages_extra.txt
+	read -p "Install extra packages? [y/N] " -r < /dev/tty
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]
+	then
+		yay -Syu --needed --noconfirm - < packages_extra.txt
+	fi
+else
+	echo "All extra packages are already installed."
+fi
+
 # run manual configuration script for
 # ~/.config/hypr/land/autostart.conf
 # ~/.config/hypr/land/monitors.conf

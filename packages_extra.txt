@@ -1,0 +1,11 @@
+mingw-w64-gcc
+prismlauncher
+steam
+spotify-launcher
+equicord
+visual-studio-code-bin
+blender
+gimp
+obs-studio
+qbittorrent
+hyprshade
