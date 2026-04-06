@@ -2,15 +2,18 @@ git
 openssh
 
 base-devel
-bash-completion
+gdb
 make
 nasm
 python
 python-requests
+python-websockets
 python-pygame
+jdk-openjdk
 
 sdl3
 sdl3_image
+imagemagick
 ffmpeg
 tar
 zip
@@ -26,7 +29,10 @@ lz4
 lzip
 pigz
 pbzip2
+wine
 
+bash-completion
+inetutils
 man-db
 less
 micro
@@ -50,6 +56,7 @@ ghex
 brightnessctl
 playerctl
 pipewire
+pipewire-alsa
 pipewire-pulse
 pipewire-jack
 wireplumber
