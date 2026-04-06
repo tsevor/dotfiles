@@ -14,3 +14,5 @@ source /usr/share/bash-completion/bash_completion
 source ~/.bash_aliases
 
 [ -e ~/.bash_secret ] && source ~/.bash_secret
+
+true # in case the previous line fails
