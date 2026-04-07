@@ -59,9 +59,6 @@ cd $root
 sudo pacman -Syu --needed --noconfirm - < packages.txt
 yay -Syu --needed --noconfirm - < packages_aur.txt
 
-# update font cache
-fc-cache -fv
-
 # create default folders in home
 xdg-user-dirs-update
 
@@ -137,6 +134,10 @@ make restart
 sudo make install
 
 cd $root
+
+# evil hardcoded manual install of custom nerd font
+sudo install -Dm644 other/OverpassMNerdFontMono-Regular.ttf -t /usr/share/fonts/TTF
+fc-cache -fv
 
 # ask user if they want the extra packages
 if ! pacman -Qq - < packages_extra.txt > /dev/null

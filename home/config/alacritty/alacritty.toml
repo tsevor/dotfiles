@@ -2,8 +2,11 @@
 opacity = 0.0
 
 [font]
-normal = { family = "Overpass Mono", style = "Regular" }
+normal = { family = "monospace", style = "Regular" }
+bold = { family = "monospace", style = "Bold" }
+italic = { family = "monospace", style = "Italic" }
 size = 12
+builtin_box_drawing = true
 
 [colors.primary]
 foreground = "#ffffff"
