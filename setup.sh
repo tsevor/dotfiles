@@ -136,8 +136,7 @@ sudo make install
 cd $root
 
 # evil hardcoded manual install of custom nerd font
-sudo install -Dm644 other/OverpassMNerdFont-Regular.ttf -t /usr/share/fonts/TTF
-fc-cache -fv
+./fontbuild/build.sh
 
 # ask user if they want the extra packages
 if ! pacman -Qq - < packages_extra.txt > /dev/null
