@@ -18,7 +18,7 @@ unzip overpass-3.0.5.zip -d overpass
 mkdir -p out
 
 ./patcher/font-patcher \
-	--removeligs --configfile config.cfg --complete --boxdrawing --quiet \
+	--removeligs --configfile config.cfg --complete --boxdrawing \
 	overpass/Overpass-3.0.5/webfonts/overpass-mono-webfont/overpass-mono-regular.ttf \
 	--outputdir out
 
