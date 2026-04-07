@@ -27,6 +27,7 @@ rm -rf ~/.config/gtk-3.0    ; ln -s $root/home/config/gtk-3.0    ~/.config
 rm -rf ~/.config/gtk-4.0    ; ln -s $root/home/config/gtk-4.0    ~/.config
 rm -rf ~/.config/qt5ct      ; ln -s $root/home/config/qt5ct      ~/.config
 rm -rf ~/.config/qt6ct      ; ln -s $root/home/config/qt6ct      ~/.config
+rm -rf ~/.config/xarchiver  ; ln -s $root/home/config/xarchiver  ~/.config
 rm -rf ~/.config/xsettingsd ; ln -s $root/home/config/xsettingsd ~/.config
 rm -rf ~/.config/xdg-desktop-portal ; ln -s $root/home/config/xdg-desktop-portal ~/.config
 
