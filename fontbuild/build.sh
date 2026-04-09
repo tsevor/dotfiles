@@ -11,16 +11,19 @@ curl -LO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPa
 rm -rf patcher
 unzip FontPatcher.zip -d patcher
 
-curl -LO https://github.com/RedHatOfficial/Overpass/releases/download/v3.0.5/overpass-3.0.5.zip
-rm -rf overpass
-unzip overpass-3.0.5.zip -d overpass
+# curl -LO https://github.com/RedHatOfficial/Overpass/releases/download/v3.0.5/overpass-3.0.5.zip
+# rm -rf overpass
+# unzip overpass-3.0.5.zip -d overpass
+
+# overpass/Overpass-3.0.5/webfonts/overpass-mono-webfont/overpass-mono-regular.ttf
 
 mkdir -p out
 
 ./patcher/font-patcher \
 	--removeligs --configfile config.cfg --complete --boxdrawing \
-	overpass/Overpass-3.0.5/webfonts/overpass-mono-webfont/overpass-mono-regular.ttf \
+	Overpass_Mono/static/OverpassMono-Regular.ttf \
 	--outputdir out
+
 
 sudo install -Dm644 out/OverpassMNerdFont-Regular.ttf -t /usr/share/fonts/TTF
 
