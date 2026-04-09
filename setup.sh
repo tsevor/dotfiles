@@ -37,7 +37,6 @@ rm -f ~/.bash_aliases       ; ln -s "$root/home/bash_aliases"      ~/.bash_alias
 rm -f ~/.bash_profile       ; ln -s "$root/home/bash_profile"      ~/.bash_profile
 rm -f ~/.gtkrc-2.0          ; ln -s "$root/home/gtkrc-2.0"         ~/.gtkrc-2.0
 
-
 # install cachyos repos and keyring
 if ! grep -q "cachyos" /etc/pacman.conf
 then
@@ -51,13 +50,16 @@ then
 fi
 
 # install yay using cachyos repo
-sudo pacman -Syu --needed --noconfirm yay
+pacman -Qq yay > /dev/null || sudo pacman -Syu --needed --noconfirm yay
 
 cd "$root"
 
+# syu no matter what just in case it passes through the whole script
+sudo pacman -Syu --noconfirm
+
 # install packages from packages.txt and packages_aur.txt
-sudo pacman -Syu --needed --noconfirm - < packages.txt
-yay -Syu --needed --noconfirm - < packages_aur.txt
+pacman -Qq - < packages.txt > /dev/null || sudo pacman -Syu --needed --noconfirm - < packages.txt 2>&1 /dev/null
+yay -Qq - < packages_aur.txt > /dev/null || yay -Syu --needed --noconfirm - < packages_aur.txt 2>&1 /dev/null
 
 # create default folders in home
 xdg-user-dirs-update
@@ -109,16 +111,19 @@ if [ ! -d immy ]
 then
 	git clone https://github.com/ztchary/immy
 	cd immy
+	make immy
+	sudo make install
+	# make immy default for its supported mime types
+	grep -Po '(?<=^MimeType=).*' /usr/share/applications/immy.desktop | \
+		tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default immy.desktop {}
 else
 	cd immy
-	git pull
+	if ! git pull | grep -q "Already up to date."
+	then
+		make immy
+		sudo make install
+	fi
 fi
-make immy
-sudo make install
-
-# make immy default for its supported mime types
-grep -Po '(?<=^MimeType=).*' /usr/share/applications/immy.desktop | \
-	tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default immy.desktop {}
 
 # install/update restart, a tool to restart programs
 cd ~/dev
@@ -126,12 +131,16 @@ if [ ! -d restart ]
 then
 	git clone https://github.com/ztchary/restart
 	cd restart
+	make restart
+	sudo make install
 else
 	cd restart
-	git pull
+	if ! git pull | grep -q "Already up to date."
+	then
+		make restart
+		sudo make install
+	fi
 fi
-make restart
-sudo make install
 
 cd "$root"
 
@@ -142,8 +151,6 @@ then
 	tar xzvf winfonts.tar.gz winfonts
 	sudo install -Dm644 winfonts/* -t /usr/share/fonts/windows
 	rm -rf winfonts.tar.gz winfonts
-else
-	echo "Windows fonts already installed."
 fi
 
 # evil hardcoded manual install of custom nerd font
@@ -151,8 +158,8 @@ if [ ! -f /usr/share/fonts/TTF/OverpassMonoNerdFont-Regular.ttf ]
 then
 	./fontbuild/build.sh
 else
-	echo "Nerd font already installed."
-	echo "You may need to maually run the fontbuild script if there is an update."
+	echo "Overpass Mono Nerd Font already installed."
+	echo "You may need to manually run the fontbuild script if there is an update."
 fi
 
 # ask user if they want the extra packages
@@ -166,8 +173,6 @@ then
 	then
 		yay -Syu --needed --noconfirm - < packages_extra.txt
 	fi
-else
-	echo "All extra packages are already installed."
 fi
 
 # run manual configuration script for
@@ -179,7 +184,7 @@ cd "$root"
 python3 "$root/settings.py"
 
 # reload to apply the changes made if applicable
-[ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && hyprctl reload
+[ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && hyprctl reload > /dev/null
 
 # print system info to look cool
 echo

@@ -143,7 +143,7 @@ def main():
 		and os.path.isfile(HYPRPAPER_OUT)
 		and os.path.isfile(HYPRLOCK_OUT)
 	):
-		print("\x1b[93mGenerated configs already exist.\x1b[0m")
+		print("Generated configs already exist.")
 		if not get_input("Reconfigure features and monitors? [y/N] ").startswith("y"):
 			exit(0)
 
