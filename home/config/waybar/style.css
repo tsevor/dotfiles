@@ -1,7 +1,7 @@
 * {
 	border: none;
 	border-radius: 0;
-	font-family: "Overpass Mono", monospace;
+	font-family: monospace;
 	font-size: 14px;
 	font-weight: bold;
 	min-height: 0;
@@ -33,29 +33,60 @@ window#waybar {
 	padding-right: 5px;
 	background: transparent;
 }
+
 #custom-media_next {
 	padding-left: 5px;
 	padding-right: 8px;
 	background: transparent;
 }
+
 #mpris {
 	padding: 0;
 	background: transparent;
 }
-#mpris.playing { color: #77ff77; }
-#mpris.paused { color: #ffff77; }
 
-#cpu, #memory, #disk, #temperature, #battery { color: #77ff77; }
-#cpu.warning, #memory.warning, #disk.warning, #battery.warning { color: #ffff77; }
-#cpu.critical, #memory.critical, #disk.critical, #temperature.critical, #battery.critical { color: #ff7777; }
+#mpris.playing {
+	color: #77ff77;
+}
 
-#battery.charging, #battery.plugged { color: #77ccff; }
+#mpris.paused {
+	color: #ffff77;
+}
+
+#cpu,
+#memory,
+#disk,
+#temperature,
+#battery {
+	color: #77ff77;
+}
+
+#cpu.warning,
+#memory.warning,
+#disk.warning,
+#battery.warning {
+	color: #ffff77;
+}
+
+#cpu.critical,
+#memory.critical,
+#disk.critical,
+#temperature.critical,
+#battery.critical {
+	color: #ff7777;
+}
+
+#battery.charging,
+#battery.plugged {
+	color: #77ccff;
+}
 
 #workspaces button {
 	padding: 0 5px;
 	color: #777777;
 	background: transparent;
 }
+
 #workspaces button.active {
 	color: #ffffff;
 	text-decoration: underline;

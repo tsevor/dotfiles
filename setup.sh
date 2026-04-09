@@ -72,7 +72,7 @@ sudo sed -i 's/^#\?HandlePowerKey=.*/HandlePowerKey=ignore/' /etc/systemd/logind
 # set some settings for theming
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-gsettings set org.gnome.desktop.interface monospace-font-name 'Overpass Mono 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'monospace 12'
 
 # enable services
 systemctl --user enable pipewire pipewire-pulse wireplumber swaync gnome-keyring-daemon
@@ -136,7 +136,6 @@ sudo make install
 cd $root
 
 # evil hardcoded manual install of custom nerd font
-
 if [ ! -f /usr/share/fonts/TTF/OverpassMNerdFont-Regular.ttf ]
 then
 	./fontbuild/build.sh
