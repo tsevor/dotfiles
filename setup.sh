@@ -94,10 +94,10 @@ ZEN_SETTING2='user_pref("zen.theme.content-element-separation", 0);'
 ZEN_SETTING3='user_pref("zen.welcome-screen.seen", true);'
 ZEN_SETTING4='user_pref("zen.window-sync.enabled", false);'
 
-grep -qF "$ZEN_SETTING1" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING1" >> "$ZEN_USER_JS"
-grep -qF "$ZEN_SETTING2" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING2" >> "$ZEN_USER_JS"
-grep -qF "$ZEN_SETTING3" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING3" >> "$ZEN_USER_JS"
-grep -qF "$ZEN_SETTING4" "$ZEN_USER_JS" 2>/dev/null || echo "$ZEN_SETTING4" >> "$ZEN_USER_JS"
+grep -qF "$ZEN_SETTING1" "$ZEN_USER_JS" 2> /dev/null || echo "$ZEN_SETTING1" >> "$ZEN_USER_JS"
+grep -qF "$ZEN_SETTING2" "$ZEN_USER_JS" 2> /dev/null || echo "$ZEN_SETTING2" >> "$ZEN_USER_JS"
+grep -qF "$ZEN_SETTING3" "$ZEN_USER_JS" 2> /dev/null || echo "$ZEN_SETTING3" >> "$ZEN_USER_JS"
+grep -qF "$ZEN_SETTING4" "$ZEN_USER_JS" 2> /dev/null || echo "$ZEN_SETTING4" >> "$ZEN_USER_JS"
 
 # make zen default for its supported mime types
 grep -Po '(?<=^MimeType=).*' /usr/share/applications/zen.desktop | \
@@ -135,8 +135,19 @@ sudo make install
 
 cd "$root"
 
+# install windows fonts
+if [ ! -d /usr/share/fonts/windows ]
+then
+	curl -LO f.slambodia.com/winfonts.tar.gz
+	tar xzvf winfonts.tar.gz winfonts
+	sudo install -Dm644 winfonts/* -t /usr/share/fonts/windows
+	rm -rf winfonts.tar.gz winfonts
+else
+	echo "Windows fonts already installed."
+fi
+
 # evil hardcoded manual install of custom nerd font
-if [ ! -f /usr/share/fonts/TTF/OverpassMNerdFont-Regular.ttf ]
+if [ ! -f /usr/share/fonts/TTF/OverpassMonoNerdFont-Regular.ttf ]
 then
 	./fontbuild/build.sh
 else
