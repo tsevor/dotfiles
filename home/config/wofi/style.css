@@ -1,5 +1,5 @@
 #window {
-	font-family: "monospace", sans-serif;
+	font-family: monospace;
 	background-color: rgba(0, 0, 0, .5);
 	border-radius: 12px;
 }

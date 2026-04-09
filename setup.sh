@@ -2,7 +2,7 @@
 set -e
 
 root=$(realpath $(dirname $0))
-cd $root
+cd "$root"
 
 # allow the rest of the script to run without prompting for sudo again
 sudo -v
@@ -17,25 +17,25 @@ mkdir -p ~/.config
 mkdir -p ~/dev
 
 # link folders in .config, removing if needed
-rm -rf ~/.config/hypr       ; ln -s $root/home/config/hypr       ~/.config
-rm -rf ~/.config/wofi       ; ln -s $root/home/config/wofi       ~/.config
-rm -rf ~/.config/alacritty  ; ln -s $root/home/config/alacritty  ~/.config
-rm -rf ~/.config/micro      ; ln -s $root/home/config/micro      ~/.config
-rm -rf ~/.config/waybar     ; ln -s $root/home/config/waybar     ~/.config
-rm -rf ~/.config/fontconfig ; ln -s $root/home/config/fontconfig ~/.config
-rm -rf ~/.config/gtk-3.0    ; ln -s $root/home/config/gtk-3.0    ~/.config
-rm -rf ~/.config/gtk-4.0    ; ln -s $root/home/config/gtk-4.0    ~/.config
-rm -rf ~/.config/qt5ct      ; ln -s $root/home/config/qt5ct      ~/.config
-rm -rf ~/.config/qt6ct      ; ln -s $root/home/config/qt6ct      ~/.config
-rm -rf ~/.config/xarchiver  ; ln -s $root/home/config/xarchiver  ~/.config
-rm -rf ~/.config/xsettingsd ; ln -s $root/home/config/xsettingsd ~/.config
-rm -rf ~/.config/xdg-desktop-portal ; ln -s $root/home/config/xdg-desktop-portal ~/.config
+rm -rf ~/.config/hypr       ; ln -s "$root/home/config/hypr"       ~/.config
+rm -rf ~/.config/wofi       ; ln -s "$root/home/config/wofi"       ~/.config
+rm -rf ~/.config/alacritty  ; ln -s "$root/home/config/alacritty"  ~/.config
+rm -rf ~/.config/micro      ; ln -s "$root/home/config/micro"      ~/.config
+rm -rf ~/.config/waybar     ; ln -s "$root/home/config/waybar"     ~/.config
+rm -rf ~/.config/fontconfig ; ln -s "$root/home/config/fontconfig" ~/.config
+rm -rf ~/.config/gtk-3.0    ; ln -s "$root/home/config/gtk-3.0"    ~/.config
+rm -rf ~/.config/gtk-4.0    ; ln -s "$root/home/config/gtk-4.0"    ~/.config
+rm -rf ~/.config/qt5ct      ; ln -s "$root/home/config/qt5ct"      ~/.config
+rm -rf ~/.config/qt6ct      ; ln -s "$root/home/config/qt6ct"      ~/.config
+rm -rf ~/.config/xarchiver  ; ln -s "$root/home/config/xarchiver"  ~/.config
+rm -rf ~/.config/xsettingsd ; ln -s "$root/home/config/xsettingsd" ~/.config
+rm -rf ~/.config/xdg-desktop-portal ; ln -s "$root/home/config/xdg-desktop-portal" ~/.config
 
 # link rc files, removing if needed
-rm -f ~/.bashrc             ; ln -s $root/home/bashrc            ~/.bashrc
-rm -f ~/.bash_aliases       ; ln -s $root/home/bash_aliases      ~/.bash_aliases
-rm -f ~/.bash_profile       ; ln -s $root/home/bash_profile      ~/.bash_profile
-rm -f ~/.gtkrc-2.0          ; ln -s $root/home/gtkrc-2.0         ~/.gtkrc-2.0
+rm -f ~/.bashrc             ; ln -s "$root/home/bashrc"            ~/.bashrc
+rm -f ~/.bash_aliases       ; ln -s "$root/home/bash_aliases"      ~/.bash_aliases
+rm -f ~/.bash_profile       ; ln -s "$root/home/bash_profile"      ~/.bash_profile
+rm -f ~/.gtkrc-2.0          ; ln -s "$root/home/gtkrc-2.0"         ~/.gtkrc-2.0
 
 
 # install cachyos repos and keyring
@@ -53,7 +53,7 @@ fi
 # install yay using cachyos repo
 sudo pacman -Syu --needed --noconfirm yay
 
-cd $root
+cd "$root"
 
 # install packages from packages.txt and packages_aur.txt
 sudo pacman -Syu --needed --noconfirm - < packages.txt
@@ -133,12 +133,15 @@ fi
 make restart
 sudo make install
 
-cd $root
+cd "$root"
 
 # evil hardcoded manual install of custom nerd font
 if [ ! -f /usr/share/fonts/TTF/OverpassMNerdFont-Regular.ttf ]
 then
 	./fontbuild/build.sh
+else
+	echo "Nerd font already installed."
+	echo "You may need to maually run the fontbuild script if there is an update."
 fi
 
 # ask user if they want the extra packages
@@ -161,8 +164,8 @@ fi
 # ~/.config/hypr/land/monitors.conf
 # ~/.config/hypr/hyprlock.conf
 # ~/.config/hypr/hyprpaper.conf
-cd $root
-python3 $root/settings.py
+cd "$root"
+python3 "$root/settings.py"
 
 # reload to apply the changes made if applicable
 [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && hyprctl reload
