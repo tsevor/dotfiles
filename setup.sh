@@ -150,13 +150,12 @@ fi
 
 cd "$root"
 
-# install windows fonts
-if [ ! -d /usr/share/fonts/windows ]
+# install windows fonts (i'm not distributing these so it's fine)
+if [ ! -d /usr/share/fonts/wf ]
 then
-	curl -LO f.slambodia.com/winfonts.tar.gz
-	tar xzvf winfonts.tar.gz winfonts
-	sudo install -Dm644 winfonts/* -t /usr/share/fonts/windows
-	rm -rf winfonts.tar.gz winfonts
+	[ ! -d ./winfonts ] && git clone https://github.com/vhdsih/fonts winfonts
+	sudo install -Dm644 winfonts/wf/* -t /usr/share/fonts/wf
+	sudo fc-cache -fv
 fi
 
 # evil hardcoded manual install of custom nerd font
