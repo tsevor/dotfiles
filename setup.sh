@@ -38,6 +38,7 @@ rm -f ~/.bash_profile       ; ln -s "$root/home/bash_profile"      ~/.bash_profi
 rm -f ~/.gtkrc-2.0          ; ln -s "$root/home/gtkrc-2.0"         ~/.gtkrc-2.0
 
 # create file for untracked machine specific config in hyprland
+[ ! -f ~/.config/hypr/land/machine.conf ]  && \
 tee ~/.config/hypr/land/machine.conf > /dev/null << EOF
 # this file is for machine specific config untracked by git
 # or to make your own small changes without git yelling at you
