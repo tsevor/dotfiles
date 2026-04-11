@@ -37,6 +37,35 @@ rm -f ~/.bash_aliases       ; ln -s "$root/home/bash_aliases"      ~/.bash_alias
 rm -f ~/.bash_profile       ; ln -s "$root/home/bash_profile"      ~/.bash_profile
 rm -f ~/.gtkrc-2.0          ; ln -s "$root/home/gtkrc-2.0"         ~/.gtkrc-2.0
 
+# if root has .gtkrc-2.0
+if ! sudo test -f /root/.gtkrc-2.0
+then
+	read -p "Do evil symlink configs to root user? [y/N] " -r < /dev/tty
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]
+	then
+		sudo rm -rf /root/.config/hypr       ; sudo ln -s "$root/home/config/hypr"       /root/.config
+		sudo rm -rf /root/.config/wofi       ; sudo ln -s "$root/home/config/wofi"       /root/.config
+		sudo rm -rf /root/.config/alacritty  ; sudo ln -s "$root/home/config/alacritty"  /root/.config
+		sudo rm -rf /root/.config/micro      ; sudo ln -s "$root/home/config/micro"      /root/.config
+		sudo rm -rf /root/.config/waybar     ; sudo ln -s "$root/home/config/waybar"     /root/.config
+		sudo rm -rf /root/.config/fontconfig ; sudo ln -s "$root/home/config/fontconfig" /root/.config
+		sudo rm -rf /root/.config/gtk-3.0    ; sudo ln -s "$root/home/config/gtk-3.0"    /root/.config
+		sudo rm -rf /root/.config/gtk-4.0    ; sudo ln -s "$root/home/config/gtk-4.0"    /root/.config
+		sudo rm -rf /root/.config/qt5ct      ; sudo ln -s "$root/home/config/qt5ct"      /root/.config
+		sudo rm -rf /root/.config/qt6ct      ; sudo ln -s "$root/home/config/qt6ct"      /root/.config
+		sudo rm -rf /root/.config/xarchiver  ; sudo ln -s "$root/home/config/xarchiver"  /root/.config
+		sudo rm -rf /root/.config/xsettingsd ; sudo ln -s "$root/home/config/xsettingsd" /root/.config
+		sudo rm -rf /root/.config/xdg-desktop-portal ; sudo ln -s "$root/home/config/xdg-desktop-portal" /root/.config
+
+		sudo rm -f /root/.bashrc             ; sudo ln -s "$root/home/bashrc"            /root/.bashrc
+		sudo rm -f /root/.bash_aliases       ; sudo ln -s "$root/home/bash_aliases"      /root/.bash_aliases
+		sudo rm -f /root/.bash_profile       ; sudo ln -s "$root/home/bash_profile"      /root/.bash_profile
+		sudo rm -f /root/.gtkrc-2.0          ; sudo ln -s "$root/home/gtkrc-2.0"         /root/.gtkrc-2.0
+	fi
+fi
+
+
 # create file for untracked machine specific config in hyprland
 tee ~/.config/hypr/land/machine.conf > /dev/null << EOF
 # this file is for machine specific config untracked by git

@@ -68,6 +68,7 @@ xdg-user-dirs
 wl-clipboard
 polkit
 polkit-gnome
+xorg-xhost
 gvfs
 gvfs-smb
 gvfs-dnssd
