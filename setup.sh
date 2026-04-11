@@ -67,6 +67,7 @@ fi
 
 
 # create file for untracked machine specific config in hyprland
+[ ! -f ~/.config/hypr/land/machine.conf ]  && \
 tee ~/.config/hypr/land/machine.conf > /dev/null << EOF
 # this file is for machine specific config untracked by git
 # or to make your own small changes without git yelling at you
@@ -179,13 +180,12 @@ fi
 
 cd "$root"
 
-# install windows fonts
-if [ ! -d /usr/share/fonts/windows ]
+# install windows fonts (i'm not distributing these so it's fine)
+if [ ! -d /usr/share/fonts/wf ]
 then
-	curl -LO f.slambodia.com/winfonts.tar.gz
-	tar xzvf winfonts.tar.gz winfonts
-	sudo install -Dm644 winfonts/* -t /usr/share/fonts/windows
-	rm -rf winfonts.tar.gz winfonts
+	[ ! -d ./winfonts ] && git clone https://github.com/vhdsih/fonts winfonts
+	sudo install -Dm644 winfonts/wf/* -t /usr/share/fonts/wf
+	sudo fc-cache -fv
 fi
 
 # evil hardcoded manual install of custom nerd font
