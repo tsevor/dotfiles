@@ -1,6 +1,6 @@
 mingw-w64-gcc
 spotify-launcher
-visual-studio-code-bin
+zed
 blender
 gimp
 obs-studio

@@ -21,6 +21,7 @@ rm -rf ~/.config/hypr       ; ln -s "$root/home/config/hypr"       ~/.config
 rm -rf ~/.config/wofi       ; ln -s "$root/home/config/wofi"       ~/.config
 rm -rf ~/.config/alacritty  ; ln -s "$root/home/config/alacritty"  ~/.config
 rm -rf ~/.config/micro      ; ln -s "$root/home/config/micro"      ~/.config
+rm -rf ~/.config/zed        ; ln -s "$root/home/config/zed"        ~/.config
 rm -rf ~/.config/waybar     ; ln -s "$root/home/config/waybar"     ~/.config
 rm -rf ~/.config/fontconfig ; ln -s "$root/home/config/fontconfig" ~/.config
 rm -rf ~/.config/gtk-3.0    ; ln -s "$root/home/config/gtk-3.0"    ~/.config
@@ -48,6 +49,7 @@ then
 		sudo rm -rf /root/.config/wofi       ; sudo ln -s "$root/home/config/wofi"       /root/.config
 		sudo rm -rf /root/.config/alacritty  ; sudo ln -s "$root/home/config/alacritty"  /root/.config
 		sudo rm -rf /root/.config/micro      ; sudo ln -s "$root/home/config/micro"      /root/.config
+		sudo rm -rf /root/.config/zed        ; sudo ln -s "$root/home/config/zed"        /root/.config
 		sudo rm -rf /root/.config/waybar     ; sudo ln -s "$root/home/config/waybar"     /root/.config
 		sudo rm -rf /root/.config/fontconfig ; sudo ln -s "$root/home/config/fontconfig" /root/.config
 		sudo rm -rf /root/.config/gtk-3.0    ; sudo ln -s "$root/home/config/gtk-3.0"    /root/.config
