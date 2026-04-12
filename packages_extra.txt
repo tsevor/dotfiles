@@ -1,6 +1,5 @@
 mingw-w64-gcc
 spotify-launcher
-zed
 blender
 gimp
 obs-studio
