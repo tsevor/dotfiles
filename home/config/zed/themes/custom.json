@@ -12,25 +12,7 @@
 					"text": "#ebebeb",
 					"editor.foreground": "#ebebeb",
 					"error": "#af1e6e",
-					"warning": "#e45716",
-
-					"terminal.background": "#000000",
-					"terminal.ansi.black": "#000000",
-					"terminal.ansi.red": "#ff0000",
-					"terminal.ansi.green": "#00ff00",
-					"terminal.ansi.yellow": "#ffff00",
-					"terminal.ansi.blue": "#0088ff",
-					"terminal.ansi.magenta": "#ff00ff",
-					"terminal.ansi.cyan": "#00ffff",
-					"terminal.ansi.white": "#aaaaaa",
-					"terminal.ansi.bright_black": "#555555",
-					"terminal.ansi.bright_red": "#ff8888",
-					"terminal.ansi.bright_green": "#88ff88",
-					"terminal.ansi.bright_yellow": "#ffff88",
-					"terminal.ansi.bright_blue": "#55aaff",
-					"terminal.ansi.bright_magenta": "#ff88ff",
-					"terminal.ansi.bright_cyan": "#88ffff",
-					"terminal.ansi.bright_white": "#ffffff"
+					"warning": "#e45716"
 				},
 				"syntax": {
 					"number": { "color": "#ffffff" },

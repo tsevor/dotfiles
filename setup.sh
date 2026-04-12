@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-root=$(realpath $(dirname $0))
+root=$(realpath "$(dirname "$0")")
 cd "$root"
 
 # allow the rest of the script to run without prompting for sudo again
@@ -45,6 +45,8 @@ then
 	echo
 	if [[ $REPLY =~ ^[Yy]$ ]]
 	then
+		sudo mkdir -p /root/.config
+
 		sudo rm -rf /root/.config/hypr       ; sudo ln -s "$root/home/config/hypr"       /root/.config
 		sudo rm -rf /root/.config/wofi       ; sudo ln -s "$root/home/config/wofi"       /root/.config
 		sudo rm -rf /root/.config/alacritty  ; sudo ln -s "$root/home/config/alacritty"  /root/.config
@@ -96,15 +98,15 @@ cd "$root"
 sudo pacman -Syu --noconfirm
 
 # install packages from packages.txt and packages_aur.txt
-pacman -Qq - < packages.txt > /dev/null || sudo pacman -Syu --needed --noconfirm - < packages.txt 2>&1 /dev/null
-yay -Qq - < packages_aur.txt > /dev/null || yay -Syu --needed --noconfirm - < packages_aur.txt 2>&1 /dev/null
+pacman -Qq - < packages.txt > /dev/null || sudo pacman -Syu --needed --noconfirm - < packages.txt
+yay -Qq - < packages_aur.txt > /dev/null || yay -Syu --needed --noconfirm - < packages_aur.txt
 
 # create default folders in home
 xdg-user-dirs-update
 
 # install service to automatically start hyprland on boot
-sudo cp $root/systemd/getty@tty1.service /etc/systemd/system/getty@tty1.service
-sudo sed -i s/USER/$USER/ /etc/systemd/system/getty@tty1.service
+sudo cp "$root/systemd/getty@tty1.service" /etc/systemd/system/getty@tty1.service
+sudo sed -i "s/USER/$USER/" /etc/systemd/system/getty@tty1.service
 
 # disable power button, bound in hyprland config
 sudo sed -i 's/^#\?HandlePowerKey=.*/HandlePowerKey=ignore/' /etc/systemd/logind.conf
@@ -125,6 +127,10 @@ then
 	sleep 5
 	killall -q zen-bin
 	mkdir -p ~/.config/zen
+
+	# make zen default for its supported mime types
+	grep -Po '(?<=^MimeType=).*' /usr/share/applications/zen.desktop | \
+		tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default zen.desktop {}
 fi
 
 ZEN_USER_JS="$(find ~/.config/zen -maxdepth 1 -type d -name "*.Default (release)" | head -n 1)/user.js"
@@ -138,10 +144,6 @@ grep -qF "$ZEN_SETTING1" "$ZEN_USER_JS" 2> /dev/null || echo "$ZEN_SETTING1" >> 
 grep -qF "$ZEN_SETTING2" "$ZEN_USER_JS" 2> /dev/null || echo "$ZEN_SETTING2" >> "$ZEN_USER_JS"
 grep -qF "$ZEN_SETTING3" "$ZEN_USER_JS" 2> /dev/null || echo "$ZEN_SETTING3" >> "$ZEN_USER_JS"
 grep -qF "$ZEN_SETTING4" "$ZEN_USER_JS" 2> /dev/null || echo "$ZEN_SETTING4" >> "$ZEN_USER_JS"
-
-# make zen default for its supported mime types
-grep -Po '(?<=^MimeType=).*' /usr/share/applications/zen.desktop | \
-	tr ';' '\n' | sed '/^$/d' | xargs -I {} xdg-mime default zen.desktop {}
 
 # install/update immy, an image viewer
 cd ~/dev

@@ -38,8 +38,9 @@
 		"Noto Sans Mono CJK HK",
 		"Noto Color Emoji",
 	],
+	"buffer_line_height": { "custom": 1.4 },
 	"ensure_final_newline_on_save": true,
-    "remove_trailing_whitespace_on_save": true,
+	"remove_trailing_whitespace_on_save": true,
 	"autosave": {
 		"after_delay": {
 			"milliseconds": 3000,
@@ -48,7 +49,7 @@
 	"hard_tabs": true,
 	"tab_size": 4,
 	"ui_font_size": 16,
-	"buffer_font_size": 13.0,
+	"buffer_font_size": 13,
 	"theme": {
 		"mode": "system",
 		"light": "One Light",
