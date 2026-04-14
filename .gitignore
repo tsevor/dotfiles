@@ -1,7 +1,7 @@
 home/config/micro/buffers/
 home/config/micro/backups/
 
-home/config/hypr/land/machine.conf
+home/config/hypr/land/local.conf
 home/config/hypr/land/monitors.conf
 home/config/hypr/land/autostart.conf
 home/config/hypr/hyprlock.conf

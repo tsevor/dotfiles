@@ -70,10 +70,19 @@ then
 fi
 
 
-# create file for untracked machine specific config in hyprland
-[ ! -f ~/.config/hypr/land/machine.conf ]  && \
-tee ~/.config/hypr/land/machine.conf > /dev/null << EOF
-# this file is for machine specific config untracked by git
+# create file for untracked config specific to the local machine for hyprland
+[ ! -f ~/.config/hypr/land/local.conf ]  && \
+tee ~/.config/hypr/land/local.conf > /dev/null << EOF
+# this file is for config specific to the local machine and is
+# untracked by git
+# or to make your own small changes without git yelling at you
+EOF
+
+# create file for untracked config specific to the local machine for bash
+[ ! -f ~/.bash_local ]  && \
+tee ~/.bash_local > /dev/null << EOF
+# this file is for config specific to the local machine and is
+# untracked by git
 # or to make your own small changes without git yelling at you
 EOF
 
