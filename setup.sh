@@ -105,8 +105,11 @@ yay -Qq - < packages_aur.txt > /dev/null || yay -Syu --needed --noconfirm - < pa
 xdg-user-dirs-update
 
 # install service to automatically start hyprland on boot
-sudo cp "$root/systemd/getty@tty1.service" /etc/systemd/system/getty@tty1.service
-sudo sed -i "s/USER/$USER/" /etc/systemd/system/getty@tty1.service
+cat << EOF | sudo systemctl edit --stdin getty@tty1.service
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty -o '-p -f -- \u' --noclear --autologin $USER %I \$TERM
+EOF
 
 # disable power button, bound in hyprland config
 sudo sed -i 's/^#\?HandlePowerKey=.*/HandlePowerKey=ignore/' /etc/systemd/logind.conf
