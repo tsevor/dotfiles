@@ -41,18 +41,16 @@
 	"buffer_line_height": { "custom": 1.4 },
 	"ensure_final_newline_on_save": true,
 	"remove_trailing_whitespace_on_save": true,
+	"format_on_save": "off",
 	"autosave": {
 		"after_delay": {
-			"milliseconds": 3000,
+			"milliseconds": 1000,
 		},
 	},
 	"hard_tabs": true,
 	"tab_size": 4,
 	"ui_font_size": 16,
 	"buffer_font_size": 13,
-	"theme": {
-		"mode": "system",
-		"light": "One Light",
-		"dark": "Custom",
-	},
+	"theme": "Custom",
+	"semantic_tokens": "combined"
 }
