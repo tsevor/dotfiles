@@ -1,0 +1,24 @@
+[Default Applications]
+text/html=zen.desktop
+text/xml=zen.desktop
+application/xhtml+xml=zen.desktop
+x-scheme-handler/http=zen.desktop
+x-scheme-handler/https=zen.desktop
+application/x-xpinstall=zen.desktop
+application/pdf=zen.desktop
+image/png=immy.desktop
+image/jpeg=immy.desktop
+image/jpg=immy.desktop
+image/gif=immy.desktop
+image/bmp=immy.desktop
+image/tiff=immy.desktop
+image/x-tga=immy.desktop
+image/webp=immy.desktop
+image/avif=immy.desktop
+image/x-portable-pixmap=immy.desktop
+image/x-portable-bitmap=immy.desktop
+image/x-portable-graymap=immy.desktop
+image/x-qoi=immy.desktop
+application/json=micro.desktop
+text/plain=micro.desktop
+text/plain=micro.desktop

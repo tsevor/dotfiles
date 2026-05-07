@@ -32,3 +32,12 @@ blue    = "#88bbff"
 magenta = "#ff88ff"
 cyan    = "#88ffff"
 white   = "#ffffff"
+
+
+# path hints, and require ctrl
+[[hints.enabled]]
+	regex = "(?:(?:https?|git|mailto|ftp|ssh)://[^\\s<>\"'()]+)|(?:(?:~/|/|\\./|\\.\\./)[^\\s<>\"'()]+)"
+	command = "xdg-open"
+	post_processing = true
+	binding = { key = "U", mods = "Control|Shift" }
+	mouse = { enabled = true, mods = "Control" }
