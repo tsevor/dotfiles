@@ -31,8 +31,9 @@ rm -rf ~/.config/qt6ct      ; ln -s "$root/home/config/qt6ct"      ~/.config
 rm -rf ~/.config/xarchiver  ; ln -s "$root/home/config/xarchiver"  ~/.config
 rm -rf ~/.config/xsettingsd ; ln -s "$root/home/config/xsettingsd" ~/.config
 rm -rf ~/.config/xdg-desktop-portal ; ln -s "$root/home/config/xdg-desktop-portal" ~/.config
+rm -rf ~/.config/user-dirs.dirs     ; ln -s "$root/home/config/user-dirs.dirs"     ~/.config
 
-# link rc files, removing if needed
+# link rc files
 rm -f ~/.bashrc             ; ln -s "$root/home/bashrc"            ~/.bashrc
 rm -f ~/.bash_aliases       ; ln -s "$root/home/bash_aliases"      ~/.bash_aliases
 rm -f ~/.bash_profile       ; ln -s "$root/home/bash_profile"      ~/.bash_profile
@@ -61,6 +62,7 @@ then
 		sudo rm -rf /root/.config/xarchiver  ; sudo ln -s "$root/home/config/xarchiver"  /root/.config
 		sudo rm -rf /root/.config/xsettingsd ; sudo ln -s "$root/home/config/xsettingsd" /root/.config
 		sudo rm -rf /root/.config/xdg-desktop-portal ; sudo ln -s "$root/home/config/xdg-desktop-portal" /root/.config
+		sudo rm -rf /root/.config/user-dirs.dirs     ; sudo ln -s "$root/home/config/user-dirs.dirs"     /root/.config
 
 		sudo rm -f /root/.bashrc             ; sudo ln -s "$root/home/bashrc"            /root/.bashrc
 		sudo rm -f /root/.bash_aliases       ; sudo ln -s "$root/home/bash_aliases"      /root/.bash_aliases
