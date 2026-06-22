@@ -56,6 +56,8 @@ def get_monitors():
 		for i in range(3, len(lines) - 1):
 			modes.append(f"{lines[i][3]}x{lines[i][7]}@{lines[i][2]}")
 		monitors[name] = modes
+	if not monitors:
+	    return {"auto":["auto"]}
 	return monitors
 
 def get_hyprlock_conf(monitors, primary):
