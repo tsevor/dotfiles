@@ -22,3 +22,10 @@ image/x-qoi=immy.desktop
 application/json=micro.desktop
 text/plain=micro.desktop
 text/plain=micro.desktop
+x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
+application/octet-stream=org.gnome.GHex.desktop
+x-scheme-handler/discord-1345366770436800533=discord-1345366770436800533.desktop
+
+[Added Associations]
+application/octet-stream=org.gnome.GHex.desktop;
+application/x-lx-executable=org.gnome.GHex.desktop;

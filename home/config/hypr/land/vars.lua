@@ -1,0 +1,12 @@
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_SESSION_DESKTOP", "Hyprland")
+hl.env("DE", "lxde") -- to trick xdg-open
+hl.env("GTK_THEME", " Adwaita:dark")
+hl.env("GDK_BACKEND", "wayland,x11")
+hl.env("QT_QPA_PLATFORM", "wayland")
+hl.env("QT_QPA_PLATFORMTHEME", " qt6ct")
+hl.env("XCURSOR_SIZE", " 24")
+hl.env("HYPRCURSOR_SIZE", " 24")
+hl.env("PASSWORD_STORE", "gnome-libsecret")
+hl.env("ELECTRON_PASSWORD_STORE", "gnome-libsecret")
