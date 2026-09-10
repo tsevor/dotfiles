@@ -77,16 +77,8 @@ hl.config({
 			enabled = true,
 			range = 16,
 			render_power = 2,
-			color = "#00000088",
-			color_inactive = "#00000055",
-			offset = {1, 1},
-		},
-		glow = {
-			enabled = true,
-			range = 16,
-			render_power = 4,
-			color = "#00000000",
-			color_inactive = "#000000aa",
+			color = "#000000cc",
+			color_inactive = "#00000088"
 		}
 	},
 
@@ -145,17 +137,8 @@ hl.animation({ leaf = "borderangle", enabled = true, speed = 50, bezier = "easeI
 
 hl.window_rule({
 	match = { class = "immy" },
-	float = true
-})
-
-hl.window_rule({
-	match = {
-		xwayland = true,
-		float = true,
-		fullscreen = false,
-		pin = false,
-	},
-	focus_on_activate = false
+    float = true,
+    no_shadow = true
 })
 
 -- INPUT --
@@ -173,6 +156,8 @@ hl.bind("SUPER + R", hl.dsp.exec_cmd("pkill wofi || wofi --show drun"))
 hl.bind("SUPER + B", hl.dsp.exec_cmd("zen-browser"))
 hl.bind("SUPER + D", hl.dsp.exec_cmd("equicord"))
 hl.bind("SUPER + G", hl.dsp.exec_cmd("steam"))
+
+hl.bind("SUPER + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/bg-picker.sh"))
 
 -- screen
 hl.bind("SUPER + S", hl.dsp.exec_cmd("pkill slurp || hyprshot -o $(xdg-user-dir PICTURES)/screenshots -m region"))
