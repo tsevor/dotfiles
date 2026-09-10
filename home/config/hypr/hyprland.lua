@@ -6,18 +6,6 @@ f:close()
 
 success, conf = pcall(require, "machines." .. hostname)
 
--- get screen size
-largestw = 0
-largesth = 0
-for _, monitor in pairs(hl.get_monitors()) do
-	local width = monitor.width
-	local height = monitor.height
-	if width > largestw then
-		largestw = width
-		largesth = height
-	end
-end
-
 -- ENVIRONMENT --
 
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
@@ -54,7 +42,7 @@ hl.on("hyprland.start", function ()
 
 	hl.dispatch(hl.dsp.exec_cmd(
 	'immy ~/.config/hypr/images/elgato.png',
-		{ float = true, move = { largestw - 566, largesth - 1016 } }
+		{ float = true, move = { 1232, 45 } }
 	))
 
 
