@@ -44,7 +44,7 @@ rm -f ~/.gtkrc-2.0          ; ln -s "$root/home/gtkrc-2.0"         ~/.gtkrc-2.0
 cd ~/dev
 if ! pacman -Qq | grep yay
 then
-	sudo pacman -S --needed git base-devel
+	sudo pacman -S --needed --noconfirm git base-devel
 	git clone https://aur.archlinux.org/yay.git
 	cd yay
 	makepkg -si --noconfirm
