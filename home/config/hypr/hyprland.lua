@@ -34,18 +34,6 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("hyprlock")
 	hl.exec_cmd("waybar")
 
-
-	hl.dispatch(hl.dsp.exec_cmd(
-	'alacritty -e sh -c "fastfetch;read"',
-		{ float = true, size = "1200 600", move = { 16, 45 } }
-	))
-
-	hl.dispatch(hl.dsp.exec_cmd(
-	'immy ~/.config/hypr/images/elgato.png',
-		{ float = true, move = { 1232, 45 } }
-	))
-
-
 	if success then
 		conf.onstart()
 	else
