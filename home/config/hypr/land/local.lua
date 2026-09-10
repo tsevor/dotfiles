@@ -1,3 +1,0 @@
--- this file is for config specific to the local machine and is
--- untracked by git
--- or to make your own small changes without git yelling at you

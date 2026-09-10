@@ -1,5 +1,5 @@
 {
-	"layer": "top",
+	"layer": "overlay",
 	"position": "top",
 	"height": 20,
 	"modules-left": [
@@ -9,20 +9,26 @@
 		"mpris",
 		"custom/media_next"
 	],
-	"modules-center": [],
+	"modules-center": [
+		"hyprland/window"
+	],
 	"modules-right": [
 		"cpu",
 		"memory",
-		"disk",
 		"temperature",
 		"network",
 		"bluetooth",
 		"backlight",
 		"pulseaudio",
-		"pulseaudio#microphone",
 		"battery",
 		"tray"
 	],
+
+	"clock": {
+		"interval": 1,
+		"format": "{:%Y-%m-%d %I:%M:%S}",
+		"tooltip-format": "{calendar}"
+	},
 
 	"hyprland/workspaces": {
 		"disable-scroll": true,
@@ -30,14 +36,8 @@
 		"format": "{name}"
 	},
 
-	"clock": {
-		"interval": 1,
-		"format": "{:%Y-%m-%d %H:%M:%S}",
-		"tooltip-format": "<tt><small>{calendar}</small></tt>"
-	},
-
 	"custom/media_prev": {
-		"format": "<span color='#ffffff'>media:</span> <span color='#77ccff'>&lt;</span>",
+		"format": "<span color='#cccccc'>media:</span> <span color='#77cccc'>&lt;&lt;</span>",
 		"on-click": "playerctl previous",
 		"exec": "playerctl status >/dev/null 2>&1 && echo ' '",
 		"interval": 2,
@@ -49,7 +49,7 @@
 		"on-click": "playerctl play-pause"
 	},
 	"custom/media_next": {
-		"format": "<span color='#77ccff'>&gt;</span>",
+		"format": "<span color='#77cccc'>&gt;&gt;</span>",
 		"on-click": "playerctl next",
 		"exec": "playerctl status >/dev/null 2>&1 && echo ' '",
 		"interval": 2,
@@ -59,95 +59,75 @@
 	"cpu": {
 		"interval": 2,
 		"states": { "warning": 50, "critical": 80 },
-		"format": "<span color='#ffffff'>cpu:</span>{usage}%"
+		"format": "<span color='#cccccc'>cpu:</span>{usage}%"
 	},
 	"memory": {
 		"interval": 2,
 		"states": { "warning": 50, "critical": 80 },
-		"format": "<span color='#ffffff'>mem:</span>{used:0.1f}g"
-	},
-	"disk": {
-		"interval": 30,
-		"format": "<span color='#ffffff'>disk:</span>{percentage_used}%",
-		"path": "/",
-		"states": { "warning": 70, "critical": 90 }
+		"format": "<span color='#cccccc'>mem:</span>{used:0.1f}g"
 	},
 	"temperature": {
 		"critical-threshold": 80,
-		"format": "<span color='#ffffff'>tmp:</span>{temperatureC}°C",
-		"format-critical": "<span color='#ffffff'>tmp:</span>{temperatureC}°C"
+		"format": "<span color='#cccccc'>tmp:</span>{temperatureC}°C",
+		"format-critical": "<span color='#cccccc'>tmp:</span>{temperatureC}°C"
 	},
 
 	"network": {
-		"format-wifi": "<span color='#ffffff'>wifi:</span>{icon}{signalStrength}%</span>",
-		"format-ethernet": "<span color='#77ccff'>eth</span>",
-		"format-disconnected": "<span color='#ff7777'>dis</span>",
+		"format-wifi": "<span color='#cccccc'>wifi:</span>{icon}{signalStrength}%</span>",
+		"format-ethernet": "<span color='#77cccc'>eth</span>",
+		"format-disconnected": "<span color='#cc7777'>dis</span>",
 		"tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}",
 		"tooltip-format-ethernet": "IP: {ipaddr}",
 		"format-icons": [
-			"<span color='#ff7777'>", "<span color='#ff7777'>",
-			"<span color='#ffb377'>", "<span color='#ffff77'>",
-			"<span color='#ffff77'>", "<span color='#77ff77'>",
-			"<span color='#77ff77'>", "<span color='#77ff77'>",
-			"<span color='#77ff77'>", "<span color='#77ff77'>"
+			"<span color='#cc7777'>", "<span color='#cc7777'>",
+			"<span color='#ccb377'>", "<span color='#cccc77'>",
+			"<span color='#cccc77'>", "<span color='#77cc77'>",
+			"<span color='#77cc77'>", "<span color='#77cc77'>",
+			"<span color='#77cc77'>", "<span color='#77cc77'>"
 		]
 	},
 	"bluetooth": {
-		"format": "<span color='#ffffff'>bt:</span><span color='#77ccff'>{status}</span>",
-		"format-disabled": "<span color='#ffffff'>bt:</span><span color='#ff7777'>off</span>",
-		"format-off": "<span color='#ffffff'>bt:</span><span color='#ff7777'>off</span>",
-		"format-on": "<span color='#ffffff'>bt:</span><span color='#77ff77'>on</span>",
-		"format-connected": "<span color='#ffffff'>bt:</span><span color='#77ff77'>{device_alias}</span>",
-		"format-connected-battery": "<span color='#ffffff'>bt:</span><span color='#77ff77'>{device_alias} {device_battery_percentage}%</span>",
+		"format": "<span color='#cccccc'>bt:</span><span color='#77cccc'>{status}</span>",
+		"format-disabled": "<span color='#cccccc'>bt:</span><span color='#cc7777'>occ</span>",
+		"format-occ": "<span color='#cccccc'>bt:</span><span color='#cc7777'>occ</span>",
+		"format-on": "<span color='#cccccc'>bt:</span><span color='#77cc77'>on</span>",
+		"format-connected": "<span color='#cccccc'>bt:</span><span color='#77cc77'>{device_alias}</span>",
+		"format-connected-battery": "<span color='#cccccc'>bt:</span><span color='#77cc77'>{device_alias} {device_battery_percentage}%</span>",
 		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+		"format-no-controller": "",
 		"on-click": "blueman-manager"
 	},
 
 	"backlight": {
-		"format": "<span color='#ffffff'>brt:</span>{icon}{percent}%</span>",
+		"format": "<span color='#cccccc'>brt:</span>{icon}{percent}%</span>",
 		"tooltip-format": "Brightness: {percent}%",
 		"format-icons": [
-			"<span color='#77ff77'>", "<span color='#77ff77'>", "<span color='#77ff77'>", "<span color='#77ff77'>",
-			"<span color='#ffff77'>", "<span color='#ffff77'>",
-			"<span color='#ffb377'>", "<span color='#ffb377'>",
-			"<span color='#ff7777'>", "<span color='#ff7777'>"
+			"<span color='#77cc77'>", "<span color='#77cc77'>", "<span color='#77cc77'>", "<span color='#77cc77'>",
+			"<span color='#cccc77'>", "<span color='#cccc77'>",
+			"<span color='#ccb377'>", "<span color='#ccb377'>",
+			"<span color='#cc7777'>", "<span color='#cc7777'>"
 		]
 	},
 	"pulseaudio": {
-		"format": "<span color='#ffffff'>vol:</span>{icon}{volume}%</span>",
-		"format-muted": "<span color='#ffffff'>vol:</span><span color='#ff77ff'>{volume}%</span>",
+		"format": "<span color='#cccccc'>vol:</span>{icon}{volume}%</span>",
+		"format-muted": "<span color='#cccccc'>vol:</span><span color='#cc77cc'>{volume}%</span>",
 		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 		"on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+",
 		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
 		"scroll-step": 5,
 		"format-icons": [
-			"<span color='#77ff77'>", "<span color='#77ff77'>",
-			"<span color='#ffff77'>", "<span color='#ffff77'>",
-			"<span color='#ffb377'>", "<span color='#ffb377'>",
-			"<span color='#ff7777'>", "<span color='#ff7777'>"
-		]
-	},
-	"pulseaudio#microphone": {
-		"format": "<span color='#ffffff'>mic:</span>{format_source}",
-		"format-source": "{icon}{volume}%</span>",
-		"format-source-muted": "<span color='#ff77ff'>{volume}%</span>",
-		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-		"on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 5%+",
-		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
-		"scroll-step": 5,
-		"format-icons": [
-			"<span color='#ff7777'>", "<span color='#ff7777'>",
-			"<span color='#ffb377'>", "<span color='#ffb377'>",
-			"<span color='#ffff77'>", "<span color='#ffff77'>",
-			"<span color='#77ff77'>", "<span color='#77ff77'>"
+			"<span color='#77cc77'>", "<span color='#77cc77'>",
+			"<span color='#cccc77'>", "<span color='#cccc77'>",
+			"<span color='#ccb377'>", "<span color='#ccb377'>",
+			"<span color='#cc7777'>", "<span color='#cc7777'>"
 		]
 	},
 
 	"battery": {
 		"states": { "good": 95, "warning": 30, "critical": 15 },
-		"format": "<span color='#ffffff'>bat:</span>{capacity}%",
-		"format-charging": "<span color='#ffffff'>bat:</span>{capacity}%",
-		"format-plugged": "<span color='#ffffff'>bat:</span>{capacity}%"
+		"format": "<span color='#cccccc'>bat:</span>{capacity}%",
+		"format-charging": "<span color='#cccccc'>bat:</span>{capacity}%",
+		"format-plugged": "<span color='#cccccc'>bat:</span>{capacity}%"
 	},
 
 	"tray": {

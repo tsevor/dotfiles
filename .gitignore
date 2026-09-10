@@ -1,16 +1,10 @@
 home/config/micro/buffers/
 home/config/micro/backups/
 
-home/config/hypr/land/local.lua
-home/config/hypr/land/monitors.lua
-home/config/hypr/land/autostart.lua
-home/config/hypr/hyprlock.lua
-home/config/hypr/hyprpaper.lua
-
 fontbuild/FontPatcher.zip
 fontbuild/references/
 fontbuild/patcher/
 fontbuild/overpass/
 fontbuild/out/
 
-winfonts
+winfonts/

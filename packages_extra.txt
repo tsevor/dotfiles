@@ -4,4 +4,3 @@ blender
 gimp
 obs-studio
 qbittorrent
-hyprshade

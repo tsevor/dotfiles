@@ -1,5 +1,7 @@
 width=500
-height=300
+height=600
+location=top
+yoffset=-8
 mode=drun
 allow_images=true
 image_size=32

@@ -1,0 +1,20 @@
+-- STARTUP --
+
+function onstart()
+	hl.exec_cmd("xrandr --output DP-1 --primary")
+end
+
+-- MONITOR --
+
+hl.monitor({
+	output = "DP-1",
+	mode = "2560x1440@240",
+	position = "0x0",
+	scale = "1"
+})
+
+-- RETURN --
+
+return {
+	onstart = onstart
+}

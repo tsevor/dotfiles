@@ -95,7 +95,12 @@ sudo pacman -Syu --needed --noconfirm - < packages.txt
 yay -Syu --needed --noconfirm - < packages_aur.txt
 
 # create default folders in home
-# xdg-user-dirs-update # brokjen
+source ~/.config/user-dirs.dirs
+for var in DESKTOP DOWNLOAD TEMPLATES PUBLICSHARE DOCUMENTS MUSIC PICTURES VIDEOS PROJECTS; do
+	var_name="XDG_${var}_DIR"
+	[ -n "${!var_name}" ] && mkdir -p "${!var_name}"
+done
+xdg-user-dirs-update
 
 # install service to automatically start hyprland on boot
 cat << EOF | sudo systemctl edit --stdin getty@tty1.service
@@ -210,13 +215,7 @@ then
 	fi
 fi
 
-# run manual configuration script for
-# ~/.config/hypr/land/autostart.conf
-# ~/.config/hypr/land/monitors.conf
-# ~/.config/hypr/hyprlock.conf
-# ~/.config/hypr/hyprpaper.conf
 cd "$root"
-python3 "$root/settings.py"
 
 # reload to apply the changes made if applicable
 [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && hyprctl reload > /dev/null

@@ -43,7 +43,6 @@ hyprland
 hyprpaper
 hyprshot
 hyprlock
-hypridle
 waybar
 wofi
 swaync
