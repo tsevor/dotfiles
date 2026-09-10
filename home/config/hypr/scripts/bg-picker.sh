@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+pkill wofi && exit
+
 IMGS="$HOME/.config/hypr/images/bg"
 
 new_wall=$(
