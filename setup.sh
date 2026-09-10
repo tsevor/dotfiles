@@ -40,18 +40,6 @@ rm -f ~/.bash_aliases       ; ln -s "$root/home/bash_aliases"      ~/.bash_alias
 rm -f ~/.bash_profile       ; ln -s "$root/home/bash_profile"      ~/.bash_profile
 rm -f ~/.gtkrc-2.0          ; ln -s "$root/home/gtkrc-2.0"         ~/.gtkrc-2.0
 
-# install cachyos repos and keyring
-if ! grep -q "cachyos" /etc/pacman.conf
-then
-	curl -O https://mirror.cachyos.org/cachyos-repo.tar.xz
-	tar xvf cachyos-repo.tar.xz
-	cd cachyos-repo
-	sed -i 's/pacman /pacman --noconfirm /g' cachyos-repo.sh
-	sudo bash cachyos-repo.sh --install
-	cd ..
-	rm -rf cachyos-repo.tar.xz cachyos-repo
-fi
-
 # install yay
 cd ~/dev
 if ! pacman -Qq | grep yay
@@ -59,7 +47,7 @@ then
 	sudo pacman -S --needed git base-devel
 	git clone https://aur.archlinux.org/yay.git
 	cd yay
-	makepkg -si
+	makepkg -si --noconfirm
 fi
 
 cd "$root"
