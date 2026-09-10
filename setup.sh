@@ -73,23 +73,6 @@ then
 	fi
 fi
 
-
-# create file for untracked config specific to the local machine for hyprland
-[ ! -f ~/.config/hypr/land/local.conf ]  && \
-tee ~/.config/hypr/land/local.conf > /dev/null << EOF
-# this file is for config specific to the local machine and is
-# untracked by git
-# or to make your own small changes without git yelling at you
-EOF
-
-# create file for untracked config specific to the local machine for bash
-[ ! -f ~/.bash_local ]  && \
-tee ~/.bash_local > /dev/null << EOF
-# this file is for config specific to the local machine and is
-# untracked by git
-# or to make your own small changes without git yelling at you
-EOF
-
 # install cachyos repos and keyring
 if ! grep -q "cachyos" /etc/pacman.conf
 then
@@ -107,15 +90,12 @@ pacman -Qq yay > /dev/null || sudo pacman -Syu --needed --noconfirm yay
 
 cd "$root"
 
-# syu no matter what just in case it passes through the whole script
-sudo pacman -Syu --noconfirm
-
 # install packages from packages.txt and packages_aur.txt
-pacman -Qq - < packages.txt > /dev/null || sudo pacman -Syu --needed --noconfirm - < packages.txt
-yay -Qq - < packages_aur.txt > /dev/null || yay -Syu --needed --noconfirm - < packages_aur.txt
+sudo pacman -Syu --needed --noconfirm - < packages.txt
+yay -Syu --needed --noconfirm - < packages_aur.txt
 
 # create default folders in home
-xdg-user-dirs-update
+# xdg-user-dirs-update # brokjen
 
 # install service to automatically start hyprland on boot
 cat << EOF | sudo systemctl edit --stdin getty@tty1.service
