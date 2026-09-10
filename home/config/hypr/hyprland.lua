@@ -34,6 +34,18 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("hyprlock")
 	hl.exec_cmd("waybar")
 
+
+	hl.dispatch(hl.dsp.exec_cmd(
+	'alacritty -e sh -c "fastfetch;read"',
+		{ float = true, size = "1200 600", move = { 16, 45 } }
+	))
+	
+	hl.dispatch(hl.dsp.exec_cmd(
+	'immy ~/.config/hypr/images/elgato.png',
+		{ float = true, move = { largestw - 566, largesth - 1016 } }
+	))
+
+
 	if success then
 		conf.onstart()
 	else
@@ -47,6 +59,18 @@ Press enter to dismiss...; read"',
 		))
 	end
 end)
+
+-- get screen size
+local largestw = 0
+local largesth = 0
+for _, monitor in pairs(hl.get_monitors()) do
+	local width = monitor.width
+	local height = monitor.height
+	if width > largestw then
+		largestw = width
+		largesth = height
+	end
+end
 
 -- GENERAL --
 
@@ -160,6 +184,12 @@ hl.window_rule({
 
 -- INPUT --
 
+hl.gesture({
+	fingers = 3,
+	direction = "horizontal",
+	action = "workspace"
+})
+
 -- apps
 hl.bind("SUPER + T", hl.dsp.exec_cmd("alacritty"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("pcmanfm"))
@@ -182,6 +212,7 @@ hl.bind("SUPER + CTRL + ALT + Q", hl.dsp.exit())
 hl.bind("SUPER + CTRL + ALT + ESCAPE", hl.dsp.exec_cmd("shutdown now"))
 hl.bind("SUPER + SHIFT + CTRL + ALT + ESCAPE", hl.dsp.exec_cmd("shutdown -r now"))
 
+hl.bind("SUPER + C", hl.dsp.layout("swapsplit"))
 hl.bind("SUPER + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("SUPER + P", hl.dsp.window.pseudo({ action = "toggle" }))

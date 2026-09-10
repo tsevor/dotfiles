@@ -1,6 +1,7 @@
 width=500
 height=600
 location=top
+layer=top
 yoffset=-8
 mode=drun
 allow_images=true
