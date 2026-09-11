@@ -6,7 +6,7 @@ function onstart()
 
 	hl.dispatch(hl.dsp.exec_cmd(
 	'alacritty -e sh -c "fastfetch;read"',
-		{ float = true, size = "1200 600", move = { 16, 45 } }
+		{ float = true, size = "1200 600", move = { 16, 44 } }
 	))
 
 	hl.dispatch(hl.dsp.exec_cmd(

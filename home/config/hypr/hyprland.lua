@@ -57,7 +57,7 @@ hl.config({
 
 	general = {
 		gaps_in = 8,
-		gaps_out = {top = 8, right = 16, bottom = 16, left = 16},
+		gaps_out = {top = 0, right = 16, bottom = 16, left = 16},
 		border_size = 0,
 		col = {
 			active_border = {colors = {"#77ffccff", "#cc77ffff"}, angle = 135},
@@ -137,8 +137,8 @@ hl.animation({ leaf = "borderangle", enabled = true, speed = 50, bezier = "easeI
 
 hl.window_rule({
 	match = { class = "immy" },
-    float = true,
-    no_shadow = true
+	float = true,
+	no_shadow = true
 })
 
 -- INPUT --
@@ -180,15 +180,15 @@ hl.bind("SUPER + P", hl.dsp.window.pseudo({ action = "toggle" }))
 
 hl.bind("SUPER + TAB", hl.dsp.focus({ workspace = "previous" }))
 
-hl.bind("SUPER + left", hl.dsp.focus({ direction = "left" }))
+hl.bind("SUPER + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind("SUPER + right", hl.dsp.focus({ direction = "right" }))
-hl.bind("SUPER + up", hl.dsp.focus({ direction = "up" }))
-hl.bind("SUPER + down", hl.dsp.focus({ direction = "down" }))
+hl.bind("SUPER + up",    hl.dsp.focus({ direction = "up" }))
+hl.bind("SUPER + down",  hl.dsp.focus({ direction = "down" }))
 
-hl.bind("SUPER + ALT + left", hl.dsp.window.move({ direction = "left" }))
+hl.bind("SUPER + ALT + left",  hl.dsp.window.move({ direction = "left" }))
 hl.bind("SUPER + ALT + right", hl.dsp.window.move({ direction = "right" }))
-hl.bind("SUPER + ALT + up", hl.dsp.window.move({ direction = "up" }))
-hl.bind("SUPER + ALT + down", hl.dsp.window.move({ direction = "down" }))
+hl.bind("SUPER + ALT + up",    hl.dsp.window.move({ direction = "up" }))
+hl.bind("SUPER + ALT + down",  hl.dsp.window.move({ direction = "down" }))
 
 for i = 1, 10 do
 	hl.bind("SUPER + " .. i % 10, hl.dsp.focus({ workspace = i }))
