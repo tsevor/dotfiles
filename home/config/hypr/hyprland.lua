@@ -123,7 +123,8 @@ hl.animation({ leaf = "layersOut", enabled = true, speed = 2, bezier = "easeInCi
 hl.animation({ leaf = "fadeIn", enabled = true, speed = 1, bezier = "easeOutCirc" })
 hl.animation({ leaf = "fadeOut", enabled = true, speed = 2, bezier = "easeInCirc" })
 
-hl.animation({ leaf = "fadePopups", enabled = false })
+hl.animation({ leaf = "fadePopupsIn", enabled = true, speed = 1, bezier = "easeOutCirc" })
+hl.animation({ leaf = "fadePopupsOut", enabled = true, speed = 1, bezier = "easeInCirc" })
 
 hl.animation({ leaf = "fadeLayersIn", enabled = false })
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 10, bezier = "delay" })
