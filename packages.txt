@@ -15,6 +15,7 @@ sdl3
 sdl3_image
 imagemagick
 ffmpeg
+wget
 tar
 zip
 unzip

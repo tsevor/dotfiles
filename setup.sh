@@ -88,7 +88,7 @@ if [ ! -d ~/.config/zen ]
 then
 	zen-browser --headless --screenshot /dev/null &> /dev/null &
 	sleep 5
-	killall -q zen-bin
+	killall -q zen-bin ||:
 	mkdir -p ~/.config/zen
 
 	# make zen default for its supported mime types
@@ -168,11 +168,9 @@ cd "$root"
 
 # download background images
 mkdir -p ~/.config/hypr/images/bg
-wget https://f.slambodia.com/media/wallpapers.tar.gz
-tar -xzf wallpapers.tar.gz
-rm wallpapers.tar.gz
-mv wallpapers/* ~/.config/hypr/images/bg/
-rm -rf wallpapers
+wget https://ztchary.net/bg.tar.gz
+tar -xzf bg.tar.gz -C ~/.config/hypr/images/bg/
+rm bg.tar.gz
 
 # ask user if they want the extra packages
 if ! pacman -Qq - < packages_extra.txt > /dev/null
