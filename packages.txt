@@ -6,14 +6,10 @@ gdb
 make
 nasm
 python
-python-requests
-python-websockets
-python-pygame
-jdk-openjdk
+wine
 
 sdl3
 sdl3_image
-imagemagick
 ffmpeg
 wget
 tar
@@ -30,7 +26,6 @@ lz4
 lzip
 pigz
 pbzip2
-wine
 
 bash-completion
 inetutils
@@ -53,18 +48,20 @@ pcmanfm
 xarchiver
 ghex
 zed
+vlc
+gimp
 
 brightnessctl
 playerctl
 pipewire
-pipewire-alsa
 pipewire-pulse
 pipewire-jack
+sof-firmware
 wireplumber
 bluez
 bluez-utils
 xdg-desktop-portal-gtk
-xdg-desktop-portal-wlr
+xdg-desktop-portal-hyprland
 xdg-user-dirs
 wl-clipboard
 polkit
@@ -95,5 +92,3 @@ qt5ct
 
 system-config-printer
 blueman
-vlc
-chromium

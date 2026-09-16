@@ -1,6 +1,0 @@
-mingw-w64-gcc
-spotify-launcher
-blender
-gimp
-obs-studio
-qbittorrent

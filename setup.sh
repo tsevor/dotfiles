@@ -172,21 +172,6 @@ wget https://ztchary.net/bg.tar.gz
 tar -xzf bg.tar.gz -C ~/.config/hypr/images/bg/
 rm bg.tar.gz
 
-# ask user if they want the extra packages
-if ! pacman -Qq - < packages_extra.txt > /dev/null
-then
-	echo "Extra packages:"
-	cat packages_extra.txt
-	read -p "Install extra packages? [y/N] " -r < /dev/tty
-	echo
-	if [[ $REPLY =~ ^[Yy]$ ]]
-	then
-		yay -Syu --needed --noconfirm - < packages_extra.txt
-	fi
-fi
-
-cd "$root"
-
 # reload to apply the changes made if applicable
 [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && hyprctl reload > /dev/null
 

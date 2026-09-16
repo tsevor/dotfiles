@@ -77,8 +77,7 @@ hl.config({
 			enabled = true,
 			range = 16,
 			render_power = 2,
-			color = "#000000cc",
-			color_inactive = "#00000088"
+			color = "#00000088"
 		}
 	},
 
@@ -126,8 +125,8 @@ hl.animation({ leaf = "fadeOut", enabled = true, speed = 2, bezier = "easeInCirc
 hl.animation({ leaf = "fadePopupsIn", enabled = true, speed = 1, bezier = "easeOutCirc" })
 hl.animation({ leaf = "fadePopupsOut", enabled = true, speed = 1, bezier = "easeInCirc" })
 
-hl.animation({ leaf = "fadeLayersIn", enabled = false })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 10, bezier = "delay" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 2, bezier = "easeOutCirc" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 2, bezier = "easeInCirc" })
 
 hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "easeOutCirc", style = "slidefade 1%" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "easeOutCirc", style = "slidefade 1%" })
