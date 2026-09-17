@@ -1,7 +1,7 @@
 * {
 	border: none;
 	font-family: monospace;
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: bold;
 }
 
@@ -21,14 +21,6 @@ window#waybar > box {
 	color: #cccccc;
 }
 
-#window {
-	margin: 0;
-	padding: 0;
-	padding-top: 8px;
-	font-size: 8px;
-}
-
-#window,
 #cpu,
 #memory,
 #temperature,
@@ -38,78 +30,20 @@ window#waybar > box {
 #pulseaudio,
 #battery,
 #clock,
-#tray {
-	padding: 0 8px;
+#tray,
+#workspaces {
+	padding: 0 0 0 16px;
 	margin: 0;
-	background: transparent;
 }
 
-#custom-media_prev {
-	padding-left: 8px;
-	padding-right: 5px;
-	background: transparent;
+#workspaces button {
+	padding: 0 4px;
+	margin: 0 2px;
+	min-height: 0;
+	color: #777777;
+	background: none;
 }
 
-#custom-media_next {
-	padding-left: 5px;
-	padding-right: 8px;
-	background: transparent;
-}
-
-#mpris {
-	padding: 0;
-	background: transparent;
-}
-
-#mpris.playing {
-	color: #77cc77;
-}
-
-#mpris.paused {
-	color: #cccc77;
-}
-
-#cpu,
-#memory,
-#temperature,
-#battery {
-	color: #77cc77;
-}
-
-#cpu.warning,
-#memory.warning,
-#battery.warning {
-	color: #cccc77;
-}
-
-#cpu.critical,
-#memory.critical,
-#temperature.critical,
-#battery.critical {
-	color: #cc7777;
-}
-
-#battery.charging,
-#battery.plugged {
-	color: #77cccc;
-}
-
-#workspaces button,
-#taskbar button {
-	margin: 1px 2px 1px 2px;
-	padding: 1px 8px 1px 8px;
+#workspaces button.active {
 	color: #cccccc;
-	background: transparent;
-	transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-#workspaces button.active,
-#taskbar button.active {
-	background: rgba(128, 128, 128, 0.2);
-}
-
-#workspaces button:hover,
-#taskbar button:hover {
-	background: rgba(230, 230, 230, 0.2);
-	color: #ffffff;
 }

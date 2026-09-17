@@ -23,6 +23,7 @@ rm -rf ~/.config/alacritty  ; ln -s "$root/home/config/alacritty"  ~/.config
 rm -rf ~/.config/micro      ; ln -s "$root/home/config/micro"      ~/.config
 rm -rf ~/.config/zed        ; ln -s "$root/home/config/zed"        ~/.config
 rm -rf ~/.config/waybar     ; ln -s "$root/home/config/waybar"     ~/.config
+rm -rf ~/.config/mako       ; ln -s "$root/home/config/mako"       ~/.config
 rm -rf ~/.config/fontconfig ; ln -s "$root/home/config/fontconfig" ~/.config
 rm -rf ~/.config/gtk-3.0    ; ln -s "$root/home/config/gtk-3.0"    ~/.config
 rm -rf ~/.config/gtk-4.0    ; ln -s "$root/home/config/gtk-4.0"    ~/.config

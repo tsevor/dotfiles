@@ -25,14 +25,22 @@ font.hhea_ascent = orig.hhea_ascent
 font.hhea_descent = orig.hhea_descent
 font.hhea_linegap = orig.hhea_linegap
 
-tolerance = base_width * 0.10
+# tolerance = base_width * 0.10
+# 
+# for glyph in font.glyphs():
+# 	bounds = glyph.boundingBox()
+# 	xmax = bounds[2]
+# 
+# 	if xmax > base_width:
+# 		columns = max(1, math.ceil((xmax - tolerance) / base_width))
+# 		glyph.width = base_width * columns
 
 for glyph in font.glyphs():
 	bounds = glyph.boundingBox()
 	xmax = bounds[2]
 
 	if xmax > base_width:
-		columns = max(1, math.ceil((xmax - tolerance) / base_width))
-		glyph.width = base_width * columns
+		glyph.width = math.ceil(xmax)
+
 
 font.generate(out_path)

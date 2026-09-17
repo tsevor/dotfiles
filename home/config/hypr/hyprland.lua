@@ -33,6 +33,7 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("hyprlock")
 	hl.exec_cmd("waybar")
+	hl.exec_cmd("mako")
 
 	if success then
 		conf.onstart()
@@ -152,7 +153,7 @@ hl.gesture({
 -- apps
 hl.bind("SUPER + T", hl.dsp.exec_cmd("alacritty"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("pcmanfm"))
-hl.bind("SUPER + R", hl.dsp.exec_cmd("pkill wofi || wofi --show drun"))
+hl.bind("SUPER + R", hl.dsp.exec_cmd("pkill wofi || wofi"))
 hl.bind("SUPER + B", hl.dsp.exec_cmd("zen-browser"))
 hl.bind("SUPER + D", hl.dsp.exec_cmd("equicord"))
 hl.bind("SUPER + G", hl.dsp.exec_cmd("steam"))

@@ -41,7 +41,7 @@ hyprshot
 hyprlock
 waybar
 wofi
-swaync
+mako
 
 alacritty
 pcmanfm
