@@ -1,10 +1,9 @@
 {
 	// STATUS PALETTE
 	// #777777;
-	// #cc7777;
-	// #cca077;
-	// #cccc77;
-	// #77cc77;
+	// #cc77cc;
+	// #b093cc;
+	// #93b0cc;
 	// #77cccc;
 	// #7777cc;
 	// #cc77cc;
@@ -27,6 +26,7 @@
 	],
 
 	"modules-right": [
+		"tray",
 		"cpu",
 		"memory",
 		"temperature",
@@ -34,14 +34,13 @@
 		"network",
 		"pulseaudio",
 		"backlight",
-		"battery",
-		"tray"
+		"battery"
 	],
 
 	// LEFT
 
 	"custom/archlogo": {
-		"format": "<span color='#1793d1'>󰣇</span>",
+		"format": "<span color='#77cccc'>󰣇</span>",
 		"tooltip": false,
 		"on-click": "pkill wofi || wofi"
 	},
@@ -73,15 +72,15 @@
 		"interval": 1,
 		"format": "{icon}",
 		"format-icons": [
-			"<span color='#77cc77'>󰝦</span>",
-			"<span color='#77cc77'>󰪞</span>",
-			"<span color='#77cc77'>󰪟</span>",
-			"<span color='#cccc77'>󰪠</span>",
-			"<span color='#cccc77'>󰪡</span>",
-			"<span color='#cca077'>󰪢</span>",
-			"<span color='#cca077'>󰪣</span>",
-			"<span color='#cc7777'>󰪤</span>",
-			"<span color='#cc7777'>󰪥</span>"
+			"<span color='#77cccc'>󰝦</span>",
+			"<span color='#77cccc'>󰪞</span>",
+			"<span color='#77cccc'>󰪟</span>",
+			"<span color='#93b0cc'>󰪠</span>",
+			"<span color='#93b0cc'>󰪡</span>",
+			"<span color='#b093cc'>󰪢</span>",
+			"<span color='#b093cc'>󰪣</span>",
+			"<span color='#cc77cc'>󰪤</span>",
+			"<span color='#cc77cc'>󰪥</span>"
 		]
 	},
 
@@ -89,15 +88,15 @@
 		"interval": 1,
 		"format": "{icon}",
 		"format-icons": [
-			"<span color='#77cc77'>󰝦</span>",
-			"<span color='#77cc77'>󰪞</span>",
-			"<span color='#77cc77'>󰪟</span>",
-			"<span color='#cccc77'>󰪠</span>",
-			"<span color='#cccc77'>󰪡</span>",
-			"<span color='#cca077'>󰪢</span>",
-			"<span color='#cca077'>󰪣</span>",
-			"<span color='#cc7777'>󰪤</span>",
-			"<span color='#cc7777'>󰪥</span>"
+			"<span color='#77cccc'>󰝦</span>",
+			"<span color='#77cccc'>󰪞</span>",
+			"<span color='#77cccc'>󰪟</span>",
+			"<span color='#93b0cc'>󰪠</span>",
+			"<span color='#93b0cc'>󰪡</span>",
+			"<span color='#b093cc'>󰪢</span>",
+			"<span color='#b093cc'>󰪣</span>",
+			"<span color='#cc77cc'>󰪤</span>",
+			"<span color='#cc77cc'>󰪥</span>"
 		]
 	},
 
@@ -105,20 +104,20 @@
 		"interval": 1,
 		"format": "{icon}",
 		"format-icons": [
-			"<span color='#77cc77'>󰝦</span>",
-			"<span color='#77cc77'>󰝦</span>",
-			"<span color='#77cc77'>󰝦</span>",
-			"<span color='#77cc77'>󰝦</span>",
-			"<span color='#77cc77'>󰝦</span>",
-			"<span color='#77cc77'>󰝦</span>",
-			"<span color='#77cc77'>󰪞</span>",
-			"<span color='#77cc77'>󰪟</span>",
-			"<span color='#cccc77'>󰪠</span>",
-			"<span color='#cccc77'>󰪡</span>",
-			"<span color='#cca077'>󰪢</span>",
-			"<span color='#cca077'>󰪣</span>",
-			"<span color='#cc7777'>󰪤</span>",
-			"<span color='#cc7777'>󰪥</span>"
+			"<span color='#77cccc'>󰝦</span>",
+			"<span color='#77cccc'>󰝦</span>",
+			"<span color='#77cccc'>󰝦</span>",
+			"<span color='#77cccc'>󰝦</span>",
+			"<span color='#77cccc'>󰝦</span>",
+			"<span color='#77cccc'>󰝦</span>",
+			"<span color='#77cccc'>󰪞</span>",
+			"<span color='#77cccc'>󰪟</span>",
+			"<span color='#93b0cc'>󰪠</span>",
+			"<span color='#93b0cc'>󰪡</span>",
+			"<span color='#b093cc'>󰪢</span>",
+			"<span color='#b093cc'>󰪣</span>",
+			"<span color='#cc77cc'>󰪤</span>",
+			"<span color='#cc77cc'>󰪥</span>"
 		]
 	},
 
@@ -127,7 +126,7 @@
 		"format-disabled": "<span color='#777777'>󰂲</span>",
 		"format-occ": "<span color='#777777'>󰂲</span>",
 		"format-on": "<span color='#777777'>󰂯</span>",
-		"format-connected": "<span color='#77cc77'>󰂰</span>",
+		"format-connected": "<span color='#77cccc'>󰂰</span>",
 		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n{device_alias}",
 		"format-connected-battery": "{icon}",
 		"tooltip-format-connected-battery": "{controller_alias}\t{controller_address}\n{device_alias}\t{device_battery_percentage}",
@@ -135,32 +134,32 @@
 		"format-no-controller": "",
 		"on-click": "blueman-manager",
 		"format-icons": [
-			"<span color='#cc7777'>󰥇</span>",
-			"<span color='#cc7777'>󰤾</span>",
-			"<span color='#cca077'>󰤿</span>",
-			"<span color='#cca077'>󰥀</span>",
-			"<span color='#cccc77'>󰥁</span>",
-			"<span color='#cccc77'>󰥂</span>",
-			"<span color='#cccc77'>󰥃</span>",
-			"<span color='#77cc77'>󰥄</span>",
-			"<span color='#77cc77'>󰥅</span>",
-			"<span color='#77cc77'>󰥆</span>",
-			"<span color='#77cc77'>󰥈</span>"
+			"<span color='#cc77cc'>󰥇</span>",
+			"<span color='#cc77cc'>󰤾</span>",
+			"<span color='#b093cc'>󰤿</span>",
+			"<span color='#b093cc'>󰥀</span>",
+			"<span color='#93b0cc'>󰥁</span>",
+			"<span color='#93b0cc'>󰥂</span>",
+			"<span color='#93b0cc'>󰥃</span>",
+			"<span color='#77cccc'>󰥄</span>",
+			"<span color='#77cccc'>󰥅</span>",
+			"<span color='#77cccc'>󰥆</span>",
+			"<span color='#77cccc'>󰥈</span>"
 		]
 	},
 
 	"network": {
 		"format-wifi": "{icon}",
-		"format-ethernet": "<span color='#77cccc'>󰈀</span>",
+		"format-ethernet": "<span color='#77cc77'>󰈀</span>",
 		"format-disconnected": "<span color='#777777'>󰤮</span>",
 		"tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}",
 		"tooltip-format-ethernet": "IP: {ipaddr}",
 		"format-icons": [
-			"<span color='#cc7777'>󰤯</span>",
-			"<span color='#cca077'>󰤟</span>",
-			"<span color='#cccc77'>󰤢</span>",
-			"<span color='#77cc77'>󰤥</span>",
-			"<span color='#77cc77'>󰤨</span>"
+			"<span color='#cc77cc'>󰤯</span>",
+			"<span color='#b093cc'>󰤟</span>",
+			"<span color='#93b0cc'>󰤢</span>",
+			"<span color='#77cccc'>󰤥</span>",
+			"<span color='#77cccc'>󰤨</span>"
 		]
 	},
 
@@ -173,11 +172,11 @@
 		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
 		"scroll-step": 5,
 		"format-icons": [
-			"<span color='#77cc77'>󰕿</span>",
-			"<span color='#77cc77'>󰖀</span>",
-			"<span color='#cccc77'>󰕾</span>",
-			"<span color='#cca077'>󰕾</span>",
-			"<span color='#cc7777'>󰕾</span>"
+			"<span color='#77cccc'>󰕿</span>",
+			"<span color='#77cccc'>󰖀</span>",
+			"<span color='#93b0cc'>󰕾</span>",
+			"<span color='#b093cc'>󰕾</span>",
+			"<span color='#cc77cc'>󰕾</span>"
 		]
 	},
 
@@ -185,46 +184,46 @@
 		"format": "{icon}",
 		"tooltip-format": "Brightness: {percent}%",
 		"format-icons": [
-			"<span color='#77cc77'>󰃞</span>",
-			"<span color='#cccc77'>󰃟</span>",
-			"<span color='#cca077'>󰃟</span>",
-			"<span color='#cca077'>󰃠</span>",
-			"<span color='#cc7777'>󰃠</span>",
-			"<span color='#cc7777'>󰃠</span>"
+			"<span color='#77cccc'>󰃞</span>",
+			"<span color='#93b0cc'>󰃟</span>",
+			"<span color='#b093cc'>󰃟</span>",
+			"<span color='#b093cc'>󰃠</span>",
+			"<span color='#cc77cc'>󰃠</span>",
+			"<span color='#cc77cc'>󰃠</span>"
 		]
 	},
 
 	"battery": {
 		"format": "{icon}",
 		"format-charging": "{icon}",
-		"format-plugged": "<span color='#77cccc'>󰚥</span>",
+		"format-plugged": "<span color='#77cc77'>󰚥</span>",
 		"tooltip-format": "Charge: {capacity}%\n{time} remaining",
 		"format-icons": {
 			"default": [
-				"<span color='#cc7777'>󰂎</span>",
-				"<span color='#cc7777'>󰁺</span>",
-				"<span color='#cc7777'>󰁻</span>",
-				"<span color='#cca077'>󰁼</span>",
-				"<span color='#cca077'>󰁽</span>",
-				"<span color='#cccc77'>󰁾</span>",
-				"<span color='#cccc77'>󰁿</span>",
-				"<span color='#77cc77'>󰂀</span>",
-				"<span color='#77cc77'>󰂁</span>",
-				"<span color='#77cc77'>󰂂</span>",
-				"<span color='#77cc77'>󰁹</span>"
+				"<span color='#cc77cc'>󰂎</span>",
+				"<span color='#cc77cc'>󰁺</span>",
+				"<span color='#cc77cc'>󰁻</span>",
+				"<span color='#b093cc'>󰁼</span>",
+				"<span color='#b093cc'>󰁽</span>",
+				"<span color='#93b0cc'>󰁾</span>",
+				"<span color='#93b0cc'>󰁿</span>",
+				"<span color='#77cccc'>󰂀</span>",
+				"<span color='#77cccc'>󰂁</span>",
+				"<span color='#77cccc'>󰂂</span>",
+				"<span color='#77cccc'>󰁹</span>"
 			],
 			"charging": [
-				"<span color='#cc7777'>󰢟</span>",
-				"<span color='#cc7777'>󰢜</span>",
-				"<span color='#cc7777'>󰂆</span>",
-				"<span color='#cca077'>󰂇</span>",
-				"<span color='#cca077'>󰂈</span>",
-				"<span color='#cccc77'>󰢝</span>",
-				"<span color='#cccc77'>󰂉</span>",
-				"<span color='#77cc77'>󰢞</span>",
-				"<span color='#77cc77'>󰂊</span>",
-				"<span color='#77cc77'>󰂋</span>",
-				"<span color='#77cc77'>󰂅</span>"
+				"<span color='#cc77cc'>󰢟</span>",
+				"<span color='#cc77cc'>󰢜</span>",
+				"<span color='#cc77cc'>󰂆</span>",
+				"<span color='#b093cc'>󰂇</span>",
+				"<span color='#b093cc'>󰂈</span>",
+				"<span color='#93b0cc'>󰢝</span>",
+				"<span color='#93b0cc'>󰂉</span>",
+				"<span color='#77cccc'>󰢞</span>",
+				"<span color='#77cccc'>󰂊</span>",
+				"<span color='#77cccc'>󰂋</span>",
+				"<span color='#77cccc'>󰂅</span>"
 			]
 		},
 	},

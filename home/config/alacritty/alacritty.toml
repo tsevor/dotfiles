@@ -13,28 +13,28 @@ size = 12
 builtin_box_drawing = true
 
 [colors.primary]
-foreground = "#ffffff"
+foreground = "#cccccc"
 background = "#000000"
 
 [colors.normal]
 black   = "#000000"
-red     = "#ff0000"
-green   = "#00ff00"
-yellow  = "#ffff00"
-blue    = "#0088ff"
-magenta = "#ff00ff"
-cyan    = "#00ffff"
-white   = "#bbbbbb"
+red     = "#cc0000"
+green   = "#00cc00"
+yellow  = "#cccc00"
+blue    = "#0077cc"
+magenta = "#cc00cc"
+cyan    = "#00cccc"
+white   = "#999999"
 
 [colors.bright]
 black   = "#333333"
-red     = "#ff8888"
-green   = "#88ff88"
-yellow  = "#ffff88"
-blue    = "#88bbff"
-magenta = "#ff88ff"
-cyan    = "#88ffff"
-white   = "#ffffff"
+red     = "#cc7777"
+green   = "#77ff77"
+yellow  = "#cccc99"
+blue    = "#7799cc"
+magenta = "#cc77cc"
+cyan    = "#77cccc"
+white   = "#cccccc"
 
 
 # path hints, and require ctrl

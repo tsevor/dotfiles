@@ -1,0 +1,40 @@
+{
+	"display": {
+		"color": "96"
+	},
+	"logo": {
+		"type": "auto",
+		"color": {"1": "96", "2": "36"}
+	},
+	"modules": [
+		"title",
+		"separator",
+		"os",
+		"host",
+		"kernel",
+		"uptime",
+		"packages",
+		"shell",
+		"display",
+		"de",
+		"wm",
+		"wmtheme",
+		"theme",
+		"icons",
+		"font",
+		"cursor",
+		"terminal",
+		"terminalfont",
+		"cpu",
+		"gpu",
+		"memory",
+		"swap",
+		"disk",
+		"battery",
+		"poweradapter",
+		"localip",
+		"locale",
+		"break",
+		"colors"
+	]
+}

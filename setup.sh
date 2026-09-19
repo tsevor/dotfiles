@@ -17,23 +17,24 @@ mkdir -p ~/.config
 mkdir -p ~/dev
 
 # link folders in .config, removing if needed
-rm -rf ~/.config/hypr       ; ln -s "$root/home/config/hypr"       ~/.config
-rm -rf ~/.config/wofi       ; ln -s "$root/home/config/wofi"       ~/.config
 rm -rf ~/.config/alacritty  ; ln -s "$root/home/config/alacritty"  ~/.config
-rm -rf ~/.config/micro      ; ln -s "$root/home/config/micro"      ~/.config
-rm -rf ~/.config/zed        ; ln -s "$root/home/config/zed"        ~/.config
-rm -rf ~/.config/waybar     ; ln -s "$root/home/config/waybar"     ~/.config
-rm -rf ~/.config/mako       ; ln -s "$root/home/config/mako"       ~/.config
+rm -rf ~/.config/fastfetch  ; ln -s "$root/home/config/fastfetch"  ~/.config
 rm -rf ~/.config/fontconfig ; ln -s "$root/home/config/fontconfig" ~/.config
 rm -rf ~/.config/gtk-3.0    ; ln -s "$root/home/config/gtk-3.0"    ~/.config
 rm -rf ~/.config/gtk-4.0    ; ln -s "$root/home/config/gtk-4.0"    ~/.config
+rm -rf ~/.config/hypr       ; ln -s "$root/home/config/hypr"       ~/.config
+rm -rf ~/.config/mako       ; ln -s "$root/home/config/mako"       ~/.config
+rm -rf ~/.config/micro      ; ln -s "$root/home/config/micro"      ~/.config
 rm -rf ~/.config/qt5ct      ; ln -s "$root/home/config/qt5ct"      ~/.config
 rm -rf ~/.config/qt6ct      ; ln -s "$root/home/config/qt6ct"      ~/.config
+rm -rf ~/.config/waybar     ; ln -s "$root/home/config/waybar"     ~/.config
+rm -rf ~/.config/wofi       ; ln -s "$root/home/config/wofi"       ~/.config
 rm -rf ~/.config/xarchiver  ; ln -s "$root/home/config/xarchiver"  ~/.config
-rm -rf ~/.config/xsettingsd ; ln -s "$root/home/config/xsettingsd" ~/.config
 rm -rf ~/.config/xdg-desktop-portal ; ln -s "$root/home/config/xdg-desktop-portal" ~/.config
-rm -rf ~/.config/user-dirs.dirs     ; ln -s "$root/home/config/user-dirs.dirs"     ~/.config
+rm -rf ~/.config/xsettingsd ; ln -s "$root/home/config/xsettingsd" ~/.config
+rm -rf ~/.config/zed        ; ln -s "$root/home/config/zed"        ~/.config
 rm -rf ~/.config/mimeapps.list      ; ln -s "$root/home/config/mimeapps.list"      ~/.config
+rm -rf ~/.config/user-dirs.dirs     ; ln -s "$root/home/config/user-dirs.dirs"     ~/.config
 
 # link rc files
 rm -f ~/.bashrc             ; ln -s "$root/home/bashrc"            ~/.bashrc
