@@ -2,7 +2,7 @@
 	border: none;
 	font-family: monospace;
 	font-size: 13px;
-	font-weight: bold;
+	font-weight: normal;
 }
 
 window#waybar {
