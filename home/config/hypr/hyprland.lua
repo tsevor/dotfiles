@@ -33,7 +33,6 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("hyprlock")
 	hl.exec_cmd("waybar")
-	hl.exec_cmd("mako")
 
 	if success then
 		conf.onstart()
@@ -144,11 +143,7 @@ hl.window_rule({
 
 -- INPUT --
 
-hl.gesture({
-	fingers = 3,
-	direction = "horizontal",
-	action = "workspace"
-})
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
 
 -- apps
 hl.bind("SUPER + T", hl.dsp.exec_cmd("alacritty"))
