@@ -5,13 +5,13 @@ function onstart()
 
 
 	hl.exec_cmd(
-	'alacritty -e sh -c "fastfetch;read"',
-		{ float = true, size = "1200 600", move = { 16, 44 } }
+	'alacritty -e sh -c "fastfetch;bash"',
+		{ float = true, size = "1200 600", move = { 16, 38 } }
 	)
 
 	hl.exec_cmd(
 	'immy ~/.config/hypr/images/elgato.png',
-        { float = true, move = { 1354, 184 } }
+		{ float = true, move = { 1354, 184 } }
 	)
 end
 
@@ -26,7 +26,7 @@ hl.monitor({
 
 for i = 1, 10 do
 	local mon = (i <= 5) and "eDP-1" or "HDMI-A-1"
-    hl.workspace_rule({ workspace = tostring(i), monitor = mon })
+	hl.workspace_rule({ workspace = tostring(i), monitor = mon })
 end
 
 -- RETURN --

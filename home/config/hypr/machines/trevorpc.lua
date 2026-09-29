@@ -5,8 +5,8 @@ function onstart()
 
 
 	hl.exec_cmd(
-	'alacritty -e sh -c "fastfetch;read"',
-		{ float = true, size = "1200 600", move = { 16, 44 } }
+	'alacritty -e sh -c "fastfetch;bash"',
+		{ float = true, size = "1200 600", move = { 16, 38 } }
 	)
 
 	hl.exec_cmd(
@@ -19,7 +19,7 @@ end
 
 hl.monitor({
 	output = "DP-1",
-	mode = "2560x1440@240",
+	mode = "2560x1440@270",
 	position = "0x0",
 	scale = "1"
 })
