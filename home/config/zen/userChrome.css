@@ -1,0 +1,15 @@
+div#zen-browser-background {
+	background-color: rgba(0, 0, 0, 0.8) !important;
+	background: rgba(0, 0, 0, 0.8) !important;
+	--zen-background-opacity: 0 !important;
+	--zen-main-browser-background-old: rgba(0, 0, 0, 0.0) !important;
+}
+#zen-main-app-wrapper,
+#sidebar-box,
+.sidebar-panel,
+#zen-sidebar-web-panel-wrapper,
+.browserSidebarContainer {
+	appearance: unset !important;
+	background: transparent !important;
+	background-color: transparent !important;
+}
