@@ -85,7 +85,7 @@ sudo systemctl enable bluetooth cups.socket udisks2.service
 if [ ! -d "$HOME/.config/zen" ]
 then
 	printstat configuring zen to make it look nicer and function better
-	zen-browser -CreateProfile "default $HOME/.config/zen/default"
+	zen-browser --headless -CreateProfile "default $HOME/.config/zen/default"
 	zen-browser --headless -P "default" --screenshot /dev/null &> /dev/null
 
 	# symlink zen config
