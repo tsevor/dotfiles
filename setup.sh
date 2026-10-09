@@ -20,7 +20,7 @@ mkdir -p "$HOME/dev"
 
 printstat linking config dirs and files
 cfgdirs=(
-	alacritty fastfetch fontconfig gtk-3.0 gtk-4.0 hypr micro
+	fastfetch fontconfig foot gtk-3.0 gtk-4.0 hypr micro
 	qt5ct qt6ct waybar wofi xarchiver xdg-desktop-portal
 	xsettingsd zed mimeapps.list user-dirs.dirs
 )
@@ -141,7 +141,7 @@ cd "$root"
 
 printstat downloading background images
 mkdir -p "$HOME/.config/hypr/images/bg"
-wget https://ztchary.net/bg.tar.gz
+wget https://zth.sh/bg.tar.gz
 tar -xzf bg.tar.gz -C "$HOME/.config/hypr/images/bg/"
 rm bg.tar.gz
 

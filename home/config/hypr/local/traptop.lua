@@ -5,7 +5,7 @@ function onstart()
 
 
 	hl.exec_cmd(
-	'alacritty -e sh -c "fastfetch;bash"',
+	'foot -e sh -c "fastfetch;bash"',
 		{ float = true, size = "1200 600", move = { 16, 38 } }
 	)
 

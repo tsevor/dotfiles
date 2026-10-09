@@ -43,12 +43,13 @@ waybar
 wofi
 swaync
 
-alacritty
+foot
 pcmanfm
 xarchiver
 ghex
 zed
 vlc
+vlc-plugin-ffmpeg
 gimp
 
 brightnessctl

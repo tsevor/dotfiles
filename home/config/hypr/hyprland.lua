@@ -1,17 +1,20 @@
 -- LOCAL --
 
+HOST = "unknown"
 local f = io.popen("uname -n")
-local hostname = f:read("*l")
-f:close()
+if f then
+	HOST = f:read("*l")
+	f:close()
+end
 
-success, conf = pcall(require, "machines." .. hostname)
+ISCONF, CONF = pcall(require, "local." .. HOST)
 
 -- ENVIRONMENT --
 
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
-hl.env("DE", "lxde") -- to trick xdg-open
+hl.env("DE", "lxde") -- because i use pcmanfm
 hl.env("GTK_THEME", "Adwaita:dark")
 hl.env("GDK_BACKEND", "wayland,x11")
 hl.env("QT_QPA_PLATFORM", "wayland")
@@ -30,21 +33,22 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
 	hl.exec_cmd("xhost +si:localuser:root")
 
+	hl.exec_cmd("foot --server")
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("hyprlock")
 	hl.exec_cmd("waybar")
 
-	if success then
-		conf.onstart()
+	if ISCONF then
+		CONF.onstart()
 	else
-		hl.dispatch(hl.dsp.exec_cmd(
-			'alacritty -e sh -c "echo -e \\\
+		hl.exec_cmd(
+			'footclient -e sh -c "echo -e \\\
 \\\\\\x1b[0\\;91mThis machine does not have its own config file.\\\\\\x1b[m\\\\\\n\\\
 You may want to create one in:\\\\\\n\\\
-~/.config/hypr/machines/' .. hostname .. '.lua\\\\\\n\\\\\\n\\\
+~/.config/hypr/local/' .. HOST .. '.lua\\\\\\n\\\\\\n\\\
 Press enter to dismiss...; read"',
-			{ float = true, size = "500 200", center = true }
-		))
+			{ float = true, size = "500 140", center = true }
+		)
 	end
 end)
 
@@ -88,7 +92,7 @@ hl.config({
 	},
 
 	xwayland = {
-	  force_zero_scaling = true
+		force_zero_scaling = true
 	},
 })
 
@@ -146,7 +150,7 @@ hl.window_rule({
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
 
 -- apps
-hl.bind("SUPER + T", hl.dsp.exec_cmd("alacritty"))
+hl.bind("SUPER + T", hl.dsp.exec_cmd("footclient || [ $? -eq 220 ] && { foot --server & sleep 0.05 && footclient; }"))
 hl.bind("SUPER + E", hl.dsp.exec_cmd("pcmanfm"))
 hl.bind("SUPER + R", hl.dsp.exec_cmd("pkill wofi || wofi"))
 hl.bind("SUPER + B", hl.dsp.exec_cmd("zen-browser"))
@@ -157,7 +161,8 @@ hl.bind("SUPER + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/bg-picker.sh"))
 
 -- screen
 hl.bind("SUPER + S", hl.dsp.exec_cmd("pkill slurp || hyprshot -o $(xdg-user-dir PICTURES)/screenshots -m region"))
-hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("pkill slurp || hyprshot -o $(xdg-user-dir PICTURES) -f immy.png -m region; immy $(xdg-user-dir PICTURES)/immy.png"))
+hl.bind("SUPER + ALT + S", hl.dsp.exec_cmd("pkill slurp || hyprshot -o $(xdg-user-dir PICTURES)/screenshots -m output -m active"))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("pkill slurp || hyprshot -o $(xdg-user-dir PICTURES) -f immy.png -m region -- immy"))
 
 hl.bind("SUPER + mouse:274", hl.dsp.exec_cmd("notify-send $(ps -p \"$(hyprctl activewindow -j | jq -r '.pid')\" -o comm=)"))
 

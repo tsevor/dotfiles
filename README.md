@@ -4,7 +4,7 @@ hyprland configuration
 to install, on a fresh arch installation, run
 
 ```bash
-curl f.slambodia.com/setup.sh | bash
+curl tsa.sh/dots | bash
 ```
 
 that link hosts the script at [./get.sh](./get.sh)

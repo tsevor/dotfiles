@@ -17,7 +17,3 @@ export VISUAL='micro'
 source /usr/share/bash-completion/bash_completion
 
 source ~/.bash_aliases
-
-[ -e ~/.bash_local ] && source ~/.bash_local
-
-true # in case the previous line fails
