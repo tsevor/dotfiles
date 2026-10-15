@@ -25,11 +25,8 @@
 	"git_panel": {
 		"dock": "left"
 	},
-	"edit_predictions": {
-		"provider": "copilot",
-	},
 	"telemetry": {
-		"diagnostics": true,
+		"diagnostics": false,
 		"metrics": false,
 	},
 	"icon_theme": {
